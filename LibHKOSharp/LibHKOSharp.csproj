@@ -38,8 +38,11 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="LibHKOSharp_Weather_NineDays.cs" />
+        <Compile Include="LibHKOSharp.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="WeatherClass\LocalWeatherForecast.cs" />
+        <Compile Include="WeatherClass\NineDaysWeather.cs" />
+        <Compile Include="WeatherClass\Weather.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

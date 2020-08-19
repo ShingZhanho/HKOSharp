@@ -1,5 +1,5 @@
 ﻿namespace LibHKOSharp {
-    public partial class LibHKOSharp {
+    public class NineDaysWeather {
         
     }
 }
