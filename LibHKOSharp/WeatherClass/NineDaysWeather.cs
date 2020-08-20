@@ -1,4 +1,4 @@
-﻿namespace LibHKOSharp {
+﻿namespace HKOSharp {
     public class NineDaysWeather {
         
     }
