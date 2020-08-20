@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
     public class LocalWeatherForecast {
@@ -26,7 +29,17 @@ namespace HKOSharp {
         #region Methods
 
         private void ProcessJson(string json) {
-            
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo == null) throw new NullReferenceException();
+            GeneralSituation = jo["generalSituation"]?.ToString();
+            TropicalCycloneInfo = jo["tcInfo"]?.ToString();
+            FireDangerWarning = jo["fireDangerWarning"]?.ToString();
+            ForecastPeriod = jo["forecastPeriod"]?.ToString();
+            ForecastDesc = jo["forecastDesc"]?.ToString();
+            Outlook = jo["outlook"]?.ToString();
+
+            var updateTime = jo["updateTime"]?.ToString();
+            UpdateTime = DateTime.Parse(updateTime);
         }
 
         #endregion
