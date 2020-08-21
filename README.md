@@ -49,6 +49,6 @@ Console.Write(eqInfo.Region);
 
 # Dependencies
 
-This library depends on the following libraries:
+This library uses the following libraries:
 
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
