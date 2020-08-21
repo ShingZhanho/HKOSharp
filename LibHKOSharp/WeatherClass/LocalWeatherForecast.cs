@@ -45,6 +45,20 @@ namespace HKOSharp {
             UpdateTime = DateTime.Parse(updateTime);
         }
 
+        public override string ToString() {
+            var text = "";
+
+            text += $"General Situation: {GeneralSituation}\n";
+            text += $"Tropical Cyclone Info: {TropicalCycloneInfo}\n";
+            text += $"Fire Danger Warning: {FireDangerWarning}\n";
+            text += $"Forecast Period: {ForecastPeriod}\n";
+            text += $"Forecast Description: {ForecastDesc}\n";
+            text += $"Outlook: {Outlook}";
+            text += $"Update date: {UpdateTime}";
+
+            return text;
+        }
+
         #endregion
     }
 }
