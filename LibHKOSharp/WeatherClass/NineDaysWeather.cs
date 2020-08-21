@@ -37,6 +37,21 @@ namespace HKOSharp {
 
             var dateString = jo["updateTime"]?.ToString();
             UpdateTime = DateTime.Parse(dateString);
+            
+            SeaTemp = new SeaTemp(jo);
+
+            for (var i = 0; i < 9; i++) {
+                var item = new OneDayWeather(jo["weatherForecast"]?[i]?.ToString());
+                WeatherForecast.Add(item);
+            }
+
+            var jsonSoilTemp = jo["soilTemp"]?.ToString();
+            var joSoilTemp = (JObject) JsonConvert.DeserializeObject(
+                jsonSoilTemp.Substring(1, jsonSoilTemp.Length - 2));
+            for (var i = 0; i < joSoilTemp.Count; i++) {
+                var item = new SoilTemp(joSoilTemp["soilTemp"]?[i]?.ToString());
+                SoilTemps.Add(item);
+            }
         }
 
         #endregion
@@ -45,8 +60,8 @@ namespace HKOSharp {
     public class OneDayWeather {
         #region Constructors
 
-        internal OneDayWeather(JObject jObject) {
-            ParseJObject(jObject);
+        internal OneDayWeather(string json) {
+            ParseJson(json);
         }
 
         #endregion
@@ -67,7 +82,7 @@ namespace HKOSharp {
 
         #region Methods
 
-        private void ParseJObject(JObject jObject) {
+        private static void ParseJson(string json) {
             
         }
 
@@ -97,7 +112,7 @@ namespace HKOSharp {
     public class SoilTemp : SeaTemp {
         #region Constructors
 
-        internal SoilTemp(JObject jObject)  {
+        internal SoilTemp(string json)  {
             
         }
 
