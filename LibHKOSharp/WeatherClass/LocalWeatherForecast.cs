@@ -13,7 +13,7 @@ namespace HKOSharp {
         /// Initializes a new LocalWeatherForecast instance
         /// </summary>
         /// <param name="json">JSON of data for this instance</param>
-        public LocalWeatherForecast(string json) {
+        internal LocalWeatherForecast(string json) {
             ProcessJson(json);
         }
 
