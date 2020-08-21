@@ -45,6 +45,9 @@ namespace HKOSharp {
             UpdateTime = DateTime.Parse(updateTime);
         }
 
+        /// <summary>
+        /// Returns a string of this object's summary
+        /// </summary>
         public override string ToString() {
             var text = "";
 

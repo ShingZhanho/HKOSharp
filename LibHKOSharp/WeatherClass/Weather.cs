@@ -33,18 +33,7 @@ namespace HKOSharp {
                 else if (language == Language.SimplifiedChinese) requestUrl += "&lang=sc";
 
                 // Request and get response
-                string response; // This is json response
-                try {
-                    var request = WebRequest.Create(requestUrl);
-                    request.Method = "GET";
-                    using var responseStream = request.GetResponse().GetResponseStream();
-                    using var reader = new StreamReader(responseStream);
-                    response = reader.ReadToEnd();
-                }
-                catch (Exception e) {
-                    Console.WriteLine(e);
-                    return null;
-                }
+                var response = HttpRequest(requestUrl);
                 
                 // Parse json to object and return
                 return new LocalWeatherForecast(response);
@@ -65,23 +54,53 @@ namespace HKOSharp {
                 else if (language == Language.SimplifiedChinese) requestUrl += "&lang=sc";
 
                 // Request and get response asynchronously
+                var response = await HttpRequestAsync(requestUrl);
+
+                // Return
+                return new LocalWeatherForecast(response);
+            }
+
+            #endregion
+
+            #region Methods for internal use
+
+            private static async Task<string> HttpRequestAsync(string url) {
                 string response;
                 try {
-                    var request = WebRequest.Create(requestUrl);
+                    var request = WebRequest.Create(url);
                     request.Method = "GET";
                     WebResponse taskRequest;
-                    using (taskRequest = await request.GetResponseAsync());
-                    using (var responseStream = taskRequest.GetResponseStream())
-                    using (var reader = new StreamReader(responseStream))
-                        response = await reader.ReadToEndAsync();
+                    using (taskRequest = await request.GetResponseAsync()) {
+                        using (var responseStream = taskRequest.GetResponseStream()) {
+                            using (var reader = new StreamReader(responseStream)) {
+                                response = await reader.ReadToEndAsync();
+                            }
+                        }
+                    }
                 }
                 catch (Exception e) {
                     Console.WriteLine(e);
                     return null;
                 }
-                
-                // Return
-                return new LocalWeatherForecast(response);
+
+                return response;
+            }
+
+            private static string HttpRequest(string url) {
+                string response;
+                try {
+                    var request = WebRequest.Create(url);
+                    request.Method = "GET";
+                    using var responseStream = request.GetResponse().GetResponseStream();
+                    using var reader = new StreamReader(responseStream);
+                    response = reader.ReadToEnd();
+                }
+                catch (Exception e) {
+                    Console.WriteLine(e);
+                    return e.ToString();
+                }
+
+                return response;
             }
 
             #endregion
