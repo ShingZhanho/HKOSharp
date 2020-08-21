@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
+    /// <summary>
+    /// Contains fetched information of Local Weather Forecast. Don't initialize in your code.
+    /// </summary>
     public class LocalWeatherForecast {
         
         /// <summary>
