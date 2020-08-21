@@ -1,5 +1,3 @@
-[Home](../) / LibHKOSharp
-
 ## LibHKOSharp Class
 
 Includes all methods for accessing HKO API.
