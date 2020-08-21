@@ -18,10 +18,25 @@ namespace HKOSharp {
 
         #region Fields
 
+        /// <summary>
+        /// A string of general situation.
+        /// </summary>
         public string GeneralSituation { get; private set; }
+        /// <summary>
+        /// A list of OneDayWeather objects. Contains future 9 days' weather forecasts.
+        /// </summary>
         public List<OneDayWeather> WeatherForecast { get; private set; }
+        /// <summary>
+        /// Represents the time of this forecast was updated.
+        /// </summary>
         public DateTime UpdateTime { get; private set; }
+        /// <summary>
+        /// A SeaTemp object. Contains information about sea temperature.
+        /// </summary>
         public SeaTemp SeaTemp { get; private set; }
+        /// <summary>
+        /// A list of SoilTemp object. Contains information of soil temperature from different station.
+        /// </summary>
         public List<SoilTemp> SoilTemps { get; private set; }
 
         #endregion
@@ -57,6 +72,9 @@ namespace HKOSharp {
         #endregion
     }
 
+    /// <summary>
+    /// Contains weather forecast information of a specific day.
+    /// </summary>
     public class OneDayWeather {
         #region Constructors
 
@@ -68,14 +86,44 @@ namespace HKOSharp {
 
         #region Fields
 
+        /// <summary>
+        /// Represents the date of this forecast.
+        /// </summary>
         public DateTime ForecastDate { get; private set; }
+        /// <summary>
+        /// A string which represents the day of a week: Monday, Saturday etc.
+        /// Language depends on the language parameter.
+        /// </summary>
         public string Week { get; private set; }
+        /// <summary>
+        /// A string which describes the wind of that day.
+        /// </summary>
         public string ForecastWind { get; private set; }
+        /// <summary>
+        /// A string which describes the weather of that day.
+        /// </summary>
         public string ForecastWeather { get; private set; }
+        /// <summary>
+        /// Represents the maximum temperature of that day (in degrees Celsius).
+        /// </summary>
         public double ForecastMaxTemp { get; private set; }
+        /// <summary>
+        /// Represents the minimum temperature of that day (in degrees Celsius).
+        /// </summary>
         public double ForecastMinTemp { get; private set; }
+        /// <summary>
+        /// Represents the highest relative humidity of that day (in percent).
+        /// </summary>
         public double ForecastMaxRh { get; private set; }
+        /// <summary>
+        /// Represents the lowest relative humidity of that day (in percent).
+        /// </summary>
         public double ForecastMinRh { get; private set; }
+        /// <summary>
+        /// Represents number of the forecast icon of that day.
+        /// Check the list of forecast icons
+        /// <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
+        /// </summary>
         public int ForecastIcon { get; private set; }
 
         #endregion
@@ -106,6 +154,9 @@ namespace HKOSharp {
         #endregion
     }
 
+    /// <summary>
+    /// Contains the information about the sea temperature.
+    /// </summary>
     public class SeaTemp {
         #region Constructors
 
@@ -121,13 +172,25 @@ namespace HKOSharp {
 
         #region Fields
 
+        /// <summary>
+        /// A string which represents the place's name which the sea/soil temperature is measured.
+        /// </summary>
         public string Place { get; protected set; }
+        /// <summary>
+        /// Represents the sea/soil temperature (in degrees Celsius).
+        /// </summary>
         public double Temp { get; protected set; }
+        /// <summary>
+        /// Represents the time which the sea/soil temperature is measured.
+        /// </summary>
         public DateTime RecordTime { get; protected set; }
 
         #endregion
     }
 
+    /// <summary>
+    /// Contains information about the soil temperature.
+    /// </summary>
     public class SoilTemp : SeaTemp {
         #region Constructors
 
@@ -145,6 +208,9 @@ namespace HKOSharp {
 
         #region Fields
 
+        /// <summary>
+        /// Represents the depth where the soil temperature was measured (in meters).
+        /// </summary>
         public double Depth { get; }
 
         #endregion
