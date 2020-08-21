@@ -68,7 +68,7 @@ namespace HKOSharp {
 
         #region Fields
 
-        public string ForecastDate { get; private set; }
+        public DateTime ForecastDate { get; private set; }
         public string Week { get; private set; }
         public string ForecastWind { get; private set; }
         public string ForecastWeather { get; private set; }
@@ -82,8 +82,25 @@ namespace HKOSharp {
 
         #region Methods
 
-        private static void ParseJson(string json) {
+        private void ParseJson(string json) {
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo == null) throw new NullReferenceException();
+
+            Week = jo["week"]?.ToString();
+            ForecastWind = jo["forecastWind"]?.ToString();
+            ForecastWeather = jo["forecastWeather"]?.ToString();
             
+            ForecastMaxTemp = Convert.ToDouble(jo["forecastMaxtemp"]?.ToString());
+            ForecastMinTemp = Convert.ToDouble(jo["forecastMintemp"]?.ToString());
+            ForecastMaxRh = Convert.ToDouble(jo["forecastMaxrh"]?.ToString());
+            ForecastMinRh = Convert.ToDouble(jo["forecastMinrh"]?.ToString());
+            ForecastIcon = Convert.ToInt32(jo["ForecastIcon"]?.ToString());
+
+            var dateString = jo["forecastDate"]?.ToString(); // format: yyyyMMdd
+            ForecastDate = new DateTime(
+                int.Parse(dateString.Substring(0,4)),
+                int.Parse(dateString.Substring(3, 2)),
+                int.Parse(dateString.Substring(5)));
         }
 
         #endregion
