@@ -11,5 +11,5 @@ public static class Weather
 | Signature                                                    | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [GetLocalWeatherForecast(Language)](LibHKOSharp_Weather_GetLocalWeatherForecast) | Returns an LocalWeatherForecast object which includes extracted information about today's local weather forecast in specified language. |
-| GetLocalWeatherForecastAsync(Language)                       | Returns an LocalWeatherForecast object which includes extracted information about today's local weather forecast in specified language asynchronously. |
+| [GetLocalWeatherForecastAsync(Language)](LibHKOLibSharp_Weather_GetLocalWeatherForecastAsync) | Returns a task that represents the asynchronous get operation. |
 

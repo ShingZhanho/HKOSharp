@@ -1,7 +1,7 @@
 ## Weather.GetLocalWeatherForecast Method
 
 ```c#
-public LocalWeatherForecast GetLocalWeatherForecast(Language language);
+public static LocalWeatherForecast GetLocalWeatherForecast(Language language);
 ```
 
 ### Overload
@@ -18,7 +18,7 @@ Language of information wanted.
 
 [LocalWeatherForecast]()
 
-An object that contains the extracted JSON information from HKO API.
+An object that contains the extracted JSON information from HKO API. If failed, null is returned.
 
 ### Remarks
 
