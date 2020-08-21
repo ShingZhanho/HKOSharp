@@ -1,8 +1,12 @@
 ## Weather.GetLocalWeatherForecast Method
 
 ```c#
-public void GetLocalWeatherForecast(Language language);
+public LocalWeatherForecast GetLocalWeatherForecast(Language language);
 ```
+
+### Overload
+
+This method has no overload.
 
 ### Parameters
 

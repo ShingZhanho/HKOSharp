@@ -14,7 +14,7 @@ This class doesn't have any methods in itself. You should use its sub classes.
 
 | Class                           | Description                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
-| [Weather](LibHKOSharp/Weather ) | Class which handles information about forecast, weather warnings etc. |
+| [Weather](LibHKOSharp_Weather ) | Class which handles information about forecast, weather warnings etc. |
 | Earthquake                      | Class which handles information about earthquake reports etc. |
 | OpenData                        | Class which handles information about today's highest temperature, lowest temperature etc. |
 
