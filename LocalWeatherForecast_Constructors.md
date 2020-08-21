@@ -1,11 +1,11 @@
-## LocalWeatherForecast Constructors
+## NineDaysWeather Constructors
 
-### LocalWeatherForecast(string)
+### NineDaysWeather(string)
 
-Initializes a new instance of the LocalWeatherForecast object to the specified JSON string.
+Instantized a new instance of the NineDaysWeather object to the specified JSON string.
 
 ```c#
-public LocalWeatherForecast(string json);
+internal NineDaysWeather(string json);
 ```
 
 #### Parameters
@@ -16,4 +16,4 @@ A string that contains JSON to be deserialized.
 
 #### Remarks
 
-Parsing invalid or inappropriate JSON will cause problems.
+NineDaysWeather can be only instantized within the assembly. 

@@ -16,7 +16,7 @@ Language of information wanted.
 
 ### Returns
 
-[LocalWeatherForecast]()
+[LocalWeatherForecast](LocalWeatherForecast)
 
 An object that contains the extracted JSON information from HKO API. If failed, null is returned.
 

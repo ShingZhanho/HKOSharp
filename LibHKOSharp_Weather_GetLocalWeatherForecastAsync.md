@@ -16,6 +16,6 @@ Language of information wanted.
 
 ### Returns
 
-Task<[LocalWeatherForecast]()>
+Task<[LocalWeatherForecast](LocalWeatherForecast)>
 
 A task that represents the asynchronous get operation.
