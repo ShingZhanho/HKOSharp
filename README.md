@@ -26,7 +26,7 @@ To use LibHKOSharp in your project, there are several ways to do so:
 
 # Usage
 
-~~For the full usage of LibHKOSharp, you should read [documents page](https://ShingZhanho.github.io/HKOSharp).~~ (WORKING IN PROGRESS)
+For the full usage of LibHKOSharp, you should read [documents page](https://hkosharp.shingzh.eu.org).
 
 Here are some examples of usages of LibHKOSharp:
 
@@ -53,3 +53,7 @@ Console.Write(eqInfo.Region);
 This library uses the following libraries:
 
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
+
+# Prerequisites
+
+* .NET Framework 4.5 or above
