@@ -110,7 +110,9 @@ namespace HKOSharp {
         #region Constructors
 
         internal SeaTemp(JObject jObject) {
-            
+            Place = jObject["seaTemp"]?["place"]?.ToString();
+            Temp = Convert.ToDouble(jObject["seaTemp"]?["value"]?.ToString());
+            RecordTime = DateTime.Parse(jObject["seaTemp"]?["recordTime"]?.ToString());
         }
 
         protected SeaTemp() { }
@@ -119,9 +121,9 @@ namespace HKOSharp {
 
         #region Fields
 
-        public string Place { get; private set; }
-        public double Temp { get; private set; }
-        public DateTime RecordTime { get; private set; }
+        public string Place { get; protected set; }
+        public double Temp { get; protected set; }
+        public DateTime RecordTime { get; protected set; }
 
         #endregion
     }
@@ -129,15 +131,21 @@ namespace HKOSharp {
     public class SoilTemp : SeaTemp {
         #region Constructors
 
-        internal SoilTemp(string json)  {
-            
+        internal SoilTemp(string json) {
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo == null) throw new NullReferenceException();
+
+            Place = jo["place"]?.ToString();
+            Temp = Convert.ToDouble(jo["value"]?.ToString());
+            RecordTime = DateTime.Parse(jo["recordTime"]?.ToString());
+            Depth = Convert.ToDouble(jo["depth"]?["value"]?.ToString());
         }
 
         #endregion
 
         #region Fields
 
-        public double Depth { get; private set; }
+        public double Depth { get; }
 
         #endregion
     }
