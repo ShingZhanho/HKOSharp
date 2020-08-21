@@ -53,7 +53,7 @@ namespace HKOSharp {
             text += $"Fire Danger Warning: {FireDangerWarning}\n";
             text += $"Forecast Period: {ForecastPeriod}\n";
             text += $"Forecast Description: {ForecastDesc}\n";
-            text += $"Outlook: {Outlook}";
+            text += $"Outlook: {Outlook}\n";
             text += $"Update date: {UpdateTime}";
 
             return text;

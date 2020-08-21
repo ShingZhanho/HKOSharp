@@ -47,10 +47,21 @@ namespace DebugTool {
                 Console.WriteLine("[ 4 ]  Get Weather Warning Info");
                 Console.WriteLine("[ 5 ]  Get Weather Warning Summary");
                 Console.WriteLine("[ 6 ]  Get Special Weather Tips");
-                Console.WriteLine("[ # ]  Return to upper menu\n");
+                Console.WriteLine("\n[ # ]  Return to upper menu");
                 Console.Write("Enter an option to perform operation: ");
                 var option = Console.ReadLine();
 
+                if (option == "1") {
+                    Console.Clear();
+                    
+                    Console.WriteLine("Testing Weather.GetLocalWeatherForecast()");
+                    Console.WriteLine(LibHKOSharp.Weather.GetLocalWeatherForecast(Language.English).ToString());
+                    
+                    Console.WriteLine("Testing Weather.GetLocalWeatherForecastAsync()");
+                    Console.WriteLine(LibHKOSharp.Weather.GetLocalWeatherForecastAsync(Language.English).ToString());
+                    Console.Read();
+                    continue;
+                }
                 if (option == "#") {
                     MainMenu();
                     return;
