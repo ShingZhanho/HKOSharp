@@ -10,7 +10,7 @@ This method has no overload.
 
 ### Parameters
 
-`language` [Language]()
+`language` [Language](Language)
 
 Language of information wanted.
 
