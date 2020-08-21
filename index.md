@@ -4,5 +4,5 @@ You will find all the information you need (probably, LOL) in this document.
 
 ### Classes
 
-* [LibHKOSharp](/Classes/LibHKOSharp.md) (this class includes most methods)
+* [LibHKOSharp](/Class/LibHKOSharp.md) (this class includes most methods)
 * LocalWeatherForecast
