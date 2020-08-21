@@ -1,4 +1,4 @@
-[Home](#!index) / LibHKOSharp
+[Home](#!) / LibHKOSharp
 
 ## LibHKOSharp Class
 
