@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
     /// <summary>
-    /// Contains all info of future nine days' forecast. Don't initialize in your code.
+    /// Contains all info of future nine days' forecast.
     /// </summary>
     public class NineDaysWeather {
         #region Constructors

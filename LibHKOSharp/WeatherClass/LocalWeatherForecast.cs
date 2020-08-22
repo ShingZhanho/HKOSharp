@@ -19,12 +19,33 @@ namespace HKOSharp {
 
         #region Fields
 
+        /// <summary>
+        /// Represents the general situation.
+        /// </summary>
         public string GeneralSituation { get; private set; }
+        /// <summary>
+        /// Represents the tropical cyclone information.
+        /// </summary>
         public string TropicalCycloneInfo { get; private set; }
+        /// <summary>
+        /// Represents the fire danger warning information.
+        /// </summary>
         public string FireDangerWarning { get; private set; }
+        /// <summary>
+        /// Represents the forecast period.
+        /// </summary>
         public string ForecastPeriod { get; private set; }
+        /// <summary>
+        /// Represents the forecast description.
+        /// </summary>
         public string ForecastDesc { get; private set; }
+        /// <summary>
+        /// Represents the outlook information.
+        /// </summary>
         public string Outlook { get; private set; }
+        /// <summary>
+        /// Represents when all the information is updated.
+        /// </summary>
         public DateTime UpdateTime { get; private set; }
 
         #endregion
