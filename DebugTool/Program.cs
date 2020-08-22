@@ -53,12 +53,16 @@ namespace DebugTool {
 
                 if (option == "1") {
                     Console.Clear();
+
+                    var result = "";
                     
                     Console.WriteLine("Testing Weather.GetLocalWeatherForecast()");
-                    Console.WriteLine(LibHKOSharp.Weather.GetLocalWeatherForecast(Language.English).ToString());
+                    result = LibHKOSharp.Weather.GetLocalWeatherForecast(Language.English).ToString();
+                    Console.WriteLine(result);
                     
                     Console.WriteLine("Testing Weather.GetLocalWeatherForecastAsync()");
-                    Console.WriteLine(LibHKOSharp.Weather.GetLocalWeatherForecastAsync(Language.English).ToString());
+                    result = LibHKOSharp.Weather.GetLocalWeatherForecastAsync(Language.English).Result.ToString();
+                    Console.WriteLine(result);
                     Console.Read();
                     continue;
                 }

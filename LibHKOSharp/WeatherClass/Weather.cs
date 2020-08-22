@@ -27,6 +27,7 @@ namespace HKOSharp {
             /// <returns>LocalWeatherForecast object if succeeded, null instead</returns>
             public static LocalWeatherForecast GetLocalWeatherForecast(Language language) {
                 var requestUrl = ApiUrl;
+                requestUrl += "dataType=flw";
                 requestUrl += GetLanguageParameter(language);
 
                 // Request and get response
