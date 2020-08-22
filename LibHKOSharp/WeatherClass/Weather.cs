@@ -27,18 +27,13 @@ namespace HKOSharp {
             /// <returns>LocalWeatherForecast object if succeeded, null instead</returns>
             public static LocalWeatherForecast GetLocalWeatherForecast(Language language) {
                 var requestUrl = ApiUrl;
-                requestUrl += "dataType=flw";
-                if (language == Language.English)
-                    requestUrl += "&lang=en";
-                else if (language == Language.TraditionChinese)
-                    requestUrl += "&lang=tc";
-                else if (language == Language.SimplifiedChinese) requestUrl += "&lang=sc";
+                requestUrl += GetLanguageParameter(language);
 
                 // Request and get response
                 var response = HttpRequest(requestUrl);
                 
                 // Parse json to object and return
-                return new LocalWeatherForecast(response);
+                return JsonIsValid(response) ? new LocalWeatherForecast(response) : null;
             }
             
             /// <summary>
@@ -49,17 +44,13 @@ namespace HKOSharp {
             public static async Task<LocalWeatherForecast> GetLocalWeatherForecastAsync(Language language) {
                 var requestUrl = ApiUrl;
                 requestUrl += "dataType=flw";
-                if (language == Language.English)
-                    requestUrl += "&lang=en";
-                else if (language == Language.TraditionChinese)
-                    requestUrl += "&lang=tc";
-                else if (language == Language.SimplifiedChinese) requestUrl += "&lang=sc";
+                requestUrl += GetLanguageParameter(language);
 
                 // Request and get response asynchronously
                 var response = await HttpRequestAsync(requestUrl);
 
                 // Return
-                return new LocalWeatherForecast(response);
+                return JsonIsValid(response) ? new LocalWeatherForecast(response) : null;
             }
 
             /// <summary>
@@ -70,17 +61,12 @@ namespace HKOSharp {
             public static NineDaysWeather GetNineDaysWeather(Language language) {
                 var requestUrl = ApiUrl;
                 requestUrl += "dataType=fnd";
-                
-                if (language == Language.English)
-                    requestUrl += "&lang=en";
-                else if (language == Language.TraditionChinese)
-                    requestUrl += "&lang=tc";
-                else if (language == Language.SimplifiedChinese) requestUrl += "&lang=sc";
+                requestUrl += GetLanguageParameter(language);
 
                 // Request and get response asynchronously
                 var response =  HttpRequest(requestUrl);
                 
-                return !JsonIsValid(response) ? null : new NineDaysWeather(response);
+                return JsonIsValid(response) ? new NineDaysWeather(response) : null;
             }
 
             #endregion
