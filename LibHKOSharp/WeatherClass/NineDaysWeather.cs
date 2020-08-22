@@ -68,6 +68,25 @@ namespace HKOSharp {
                 SoilTemps.Add(item);
             }
         }
+        
+        /// <summary>
+        /// Represents the summary of all information.
+        /// </summary>
+        public override string ToString() {
+            var returnString = "";
+
+            returnString += $"Information updated at {UpdateTime}\n";
+            returnString += $"General Situation: {GeneralSituation}\n";
+            returnString += "Nine-day Forecast:\n";
+            foreach (var day in WeatherForecast)
+            foreach (var line in day.ToString().Split('\n'))
+                returnString += $"    {line}\n";
+            returnString += $"Sea temperature: {SeaTemp}\n";
+            foreach (var soil in SoilTemps)
+                returnString += $"Soil Temperature: {soil}";
+
+            return returnString;
+        }
 
         #endregion
     }
@@ -152,6 +171,20 @@ namespace HKOSharp {
         }
 
         #endregion
+
+        public override string ToString() {
+            var returnString = "";
+
+            returnString += $"Forecast Date: {ForecastDate}\n";
+            returnString += $"Day of week: {Week}\n";
+            returnString += $"Wind Forecast: {ForecastWind}\n";
+            returnString += $"Weather Forecast: {ForecastWeather}\n";
+            returnString += $"Temperature: from {ForecastMinTemp}C to {ForecastMaxTemp}C\n";
+            returnString += $"Relative Humidity: from {ForecastMinRh}% to {ForecastMaxRh}%\n";
+            returnString += $"Icon: {ForecastIcon}";
+            
+            return returnString;
+        }
     }
 
     /// <summary>
@@ -186,6 +219,14 @@ namespace HKOSharp {
         public DateTime RecordTime { get; protected set; }
 
         #endregion
+
+        #region Methods
+
+        public override string ToString() {
+            return $"Measured in {Place} at {RecordTime}. Temperature: {Temp}C";
+        }
+
+        #endregion
     }
 
     /// <summary>
@@ -212,6 +253,14 @@ namespace HKOSharp {
         /// Represents the depth where the soil temperature was measured (in meters).
         /// </summary>
         public double Depth { get; }
+
+        #endregion
+
+        #region Methods
+
+        public override string ToString() {
+            return $"Measured in {Place} (depth: {Depth} metre(s)) at {RecordTime}. Temperature: {Temp}C";
+        }
 
         #endregion
     }
