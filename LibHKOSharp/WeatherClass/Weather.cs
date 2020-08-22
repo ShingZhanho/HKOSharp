@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
-    public partial class LibHKOSharp {
+    public static partial class LibHKOSharp {
         public static class Weather {
             #region Fields
 

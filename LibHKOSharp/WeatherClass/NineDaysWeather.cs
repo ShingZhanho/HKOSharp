@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -11,6 +12,8 @@ namespace HKOSharp {
         #region Constructors
 
         internal NineDaysWeather(string json) {
+            WeatherForecast = new List<OneDayWeather>();
+            SoilTemps = new List<SoilTemp>();
             ParseJson(json);
         }
 
@@ -60,11 +63,16 @@ namespace HKOSharp {
                 WeatherForecast.Add(item);
             }
 
-            var jsonSoilTemp = jo["soilTemp"]?.ToString();
-            var joSoilTemp = (JObject) JsonConvert.DeserializeObject(
-                jsonSoilTemp.Substring(1, jsonSoilTemp.Length - 2));
-            for (var i = 0; i < joSoilTemp.Count; i++) {
-                var item = new SoilTemp(joSoilTemp["soilTemp"]?[i]?.ToString());
+            // Extract soilTemp token as independent json string
+            // Remove all line breaks before processing
+            var jsonSoilTemp = jo["soilTemp"]?.ToString().Replace("\r\n","");
+            // Remove unnecessary white-spaces
+            foreach (var match in Regex.Matches(jsonSoilTemp, @"\s{2,}|:\s{1,}"))
+                jsonSoilTemp = match.ToString().Contains(":")
+                    ? jsonSoilTemp.Replace(": ", ":")
+                    : jsonSoilTemp.Replace(match.ToString(), "");
+            foreach (var match in Regex.Matches(jsonSoilTemp, @"\{.*?\}\}")) {
+                var item = new SoilTemp(match.ToString());
                 SoilTemps.Add(item);
             }
         }
@@ -82,8 +90,9 @@ namespace HKOSharp {
             foreach (var line in day.ToString().Split('\n'))
                 returnString += $"    {line}\n";
             returnString += $"Sea temperature: {SeaTemp}\n";
+            returnString += "Soil Temperatures:\n";
             foreach (var soil in SoilTemps)
-                returnString += $"Soil Temperature: {soil}";
+                returnString += $"    {soil}\n";
 
             return returnString;
         }
@@ -157,17 +166,17 @@ namespace HKOSharp {
             ForecastWind = jo["forecastWind"]?.ToString();
             ForecastWeather = jo["forecastWeather"]?.ToString();
             
-            ForecastMaxTemp = Convert.ToDouble(jo["forecastMaxtemp"]?.ToString());
-            ForecastMinTemp = Convert.ToDouble(jo["forecastMintemp"]?.ToString());
-            ForecastMaxRh = Convert.ToDouble(jo["forecastMaxrh"]?.ToString());
-            ForecastMinRh = Convert.ToDouble(jo["forecastMinrh"]?.ToString());
+            ForecastMaxTemp = Convert.ToDouble(jo["forecastMaxtemp"]?["value"]?.ToString());
+            ForecastMinTemp = Convert.ToDouble(jo["forecastMintemp"]?["value"]?.ToString());
+            ForecastMaxRh = Convert.ToDouble(jo["forecastMaxrh"]?["value"]?.ToString());
+            ForecastMinRh = Convert.ToDouble(jo["forecastMinrh"]?["value"]?.ToString());
             ForecastIcon = Convert.ToInt32(jo["ForecastIcon"]?.ToString());
 
             var dateString = jo["forecastDate"]?.ToString(); // format: yyyyMMdd
             ForecastDate = new DateTime(
                 int.Parse(dateString.Substring(0,4)),
-                int.Parse(dateString.Substring(3, 2)),
-                int.Parse(dateString.Substring(5)));
+                int.Parse(dateString.Substring(4, 2)),
+                int.Parse(dateString.Substring(6)));
         }
 
         #endregion

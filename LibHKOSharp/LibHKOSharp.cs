@@ -4,22 +4,7 @@ using System;
 using System.Runtime.CompilerServices;
 
 namespace HKOSharp {
-    public partial class LibHKOSharp {
-        #region Constructors
-
-        // /// <summary>
-        // /// Initializes a new LibHKOSharp instance.
-        // /// </summary>
-        // public LibHKOSharp() {
-        // }
-
-        #endregion
-
-        #region Fields
-
-
-        #endregion
-
+    public static partial class LibHKOSharp {
         #region Methods
 
         internal static string GetLanguageParameter(Language language) {

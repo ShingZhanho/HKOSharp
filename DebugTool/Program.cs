@@ -47,8 +47,8 @@ namespace DebugTool {
                 Console.WriteLine("[ 4 ]  Get Weather Warning Info");
                 Console.WriteLine("[ 5 ]  Get Weather Warning Summary");
                 Console.WriteLine("[ 6 ]  Get Special Weather Tips");
-                Console.WriteLine("\n[ # ]  Return to upper menu");
-                Console.Write("Enter an option to perform operation: ");
+                Console.WriteLine("[ # ]  Return to upper menu");
+                Console.Write("\nEnter an option to perform operation: ");
                 var option = Console.ReadLine();
 
                 if (option == "1") {
@@ -62,6 +62,21 @@ namespace DebugTool {
                     
                     Console.WriteLine("Testing Weather.GetLocalWeatherForecastAsync()");
                     result = LibHKOSharp.Weather.GetLocalWeatherForecastAsync(Language.English).Result.ToString();
+                    Console.WriteLine(result);
+                    Console.Read();
+                    continue;
+                }
+                if (option == "2") {
+                    Console.Clear();
+
+                    var result = "";
+                    
+                    Console.WriteLine("Testing Weather.GetLocalWeatherForecast()");
+                    result = LibHKOSharp.Weather.GetNineDaysWeather(Language.TraditionChinese).ToString();
+                    Console.WriteLine(result);
+                    
+                    Console.WriteLine("Testing Weather.GetLocalWeatherForecastAsync()");
+                    result = LibHKOSharp.Weather.GetNineDaysWeatherAsync(Language.English).Result.ToString();
                     Console.WriteLine(result);
                     Console.Read();
                     continue;
