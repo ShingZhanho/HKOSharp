@@ -69,6 +69,21 @@ namespace HKOSharp {
                 return JsonIsValid(response) ? new NineDaysWeather(response) : null;
             }
 
+            /// <summary>
+            /// Gets Nine-Day Weather Forecast in given language asynchronously.
+            /// </summary>
+            /// <param name="language">Language of forecast to get</param>
+            /// <returns>NineDaysWeather object if succeeded, null instead.</returns>
+            public static async Task<NineDaysWeather> GetNineDaysWeatherAsync(Language language) {
+                var requestUrl = ApiUrl;
+                requestUrl += "dataType=fnd";
+                requestUrl += GetLanguageParameter(language);
+
+                var response = await HttpRequestAsync(requestUrl);
+
+                return JsonIsValid(response) ? new NineDaysWeather(response) : null;
+            }
+
             #endregion
 
             #region Methods for internal use
