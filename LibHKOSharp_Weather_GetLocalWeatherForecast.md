@@ -4,10 +4,6 @@
 public static LocalWeatherForecast GetLocalWeatherForecast(Language language);
 ```
 
-### Overload
-
-This method has no overload.
-
 ### Parameters
 
 `language` [Language](Language)

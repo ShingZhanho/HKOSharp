@@ -4,10 +4,18 @@ You will find all the information you need (probably, LOL) in this document.
 
 ### Classes
 
+#### Classes for methods
+
 * [LibHKOSharp](LibHKOSharp)
   * [Weather](LibHKOSharp_Weather)
+
+#### Classes for results
+
 * [LocalWeatherForecast](LocalWeatherForecast)
 * [NineDaysWeather](NineDaysWeather)
+* [OneDayWeather](OneDayWeather)
+* [SeaTemp](SeaTemp)
+  * [SoilTemp](SoilTemp)
 
 ### HKO API Documents
 

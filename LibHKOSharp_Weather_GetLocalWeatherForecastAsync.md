@@ -4,10 +4,6 @@
 public static async Task<LocalWeatherForecast> GetLocalWeatherForecastAsync(Language language);
 ```
 
-### Overload
-
-This method has no overload.
-
 ### Parameters
 
 `language` [Language](Language)

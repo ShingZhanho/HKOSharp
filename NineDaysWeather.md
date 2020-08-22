@@ -10,7 +10,7 @@ public class NineDaysWeather
 
 | Name                    | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ |
-| NineDaysWeather(string) | Instantize a new instance of the NineDaysWeather object to a specified JSON string. |
+| NineDaysWeather(string) | Instantizes a new instance of the NineDaysWeather object to a specified JSON string. |
 
 ### Fields
 
@@ -24,4 +24,4 @@ public class NineDaysWeather
 
 ### Remarks
 
-This class is used internally within LibHKOSharp. You should call methods in LibHKOSharp to get a LocalWeatherForecast object.
+This class is used internally within LibHKOSharp. You should call methods in LibHKOSharp to get a NineDaysWeather object.
