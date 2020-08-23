@@ -1,5 +1,7 @@
 ## Welcome to LibHKOSharp Documentations
 
+<p align="center"><img src="./HKOSharp_Logo.png" height = "75"/></p>
+
 You will find all the information you need (probably, LOL) in this document.
 
 ### Classes
