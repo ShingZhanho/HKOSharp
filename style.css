@@ -93,3 +93,7 @@ a:link {color: #438DDA;}
 a:visited {color: #438DDA;}
 
 div.separator-blank {height: 20px;}
+
+li {
+    line-height: 1.5;
+}
