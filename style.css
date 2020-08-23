@@ -36,7 +36,7 @@ div#page-content {
     padding-top: 100px;
     width: 100vw;
     height: calc(100vh - 85px);
-    overflow: scroll;
+    overflow: auto;
     z-index: 0;
 }
 
@@ -70,3 +70,21 @@ div#main-content {
     line-height: normal;
     vertical-align: middle;
 }
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+h1, h2, h3{
+    color: #2B5FA6;
+}
+
+h1 {font-size: 25px;}
+
+h2 {font-size: 22px;}
+
+h3 {font-size: 20px;}
+
+h4 {font-size: 18px;}
+
+h5 {font-size: 16px;}
