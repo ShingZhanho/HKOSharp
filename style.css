@@ -88,3 +88,8 @@ h3 {font-size: 20px;}
 h4 {font-size: 18px;}
 
 h5 {font-size: 16px;}
+
+a:link {color: #438DDA;}
+a:visited {color: #438DDA;}
+
+div.separator-blank {height: 20px;}
