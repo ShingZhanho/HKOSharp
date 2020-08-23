@@ -1,7 +1,7 @@
 ## Weather.GetLocalWeatherForecastAsync Method
 
 ```c#
-public static async Task<LocalWeatherForecast> GetLocalWeatherForecastAsync(Language language);
+public static async Task<NineDaysWeather> GetNineDaysWeatherAsync(Language language);
 ```
 
 ### Parameters
@@ -12,6 +12,6 @@ Language of information wanted.
 
 ### Returns
 
-Task<[LocalWeatherForecast](LocalWeatherForecast)>
+Task<[NineDaysWeather](NineDaysWeather)>
 
 A task that represents the asynchronous get operation.
