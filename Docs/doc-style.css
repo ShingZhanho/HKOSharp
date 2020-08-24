@@ -14,6 +14,18 @@ h1.alert {
     vertical-align: middle;
 }
 
+a.alert{
+    display: inline-block;
+    border-radius: 6px;
+    border: 1px hidden black;
+    padding: 2px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+a.alert:link {text-decoration: none;}
+a.alert:visited {text-decoration: none;}
+
 p.alert-text {
     margin: 0px;
 }
@@ -42,6 +54,8 @@ h1.alert-notes {
 h1.alert-warning {
     color:#DB5F00;
 }
+
+a.alert-warning {background-color: #FCC88F}
 
 table.children-members {
     width: 100%;
