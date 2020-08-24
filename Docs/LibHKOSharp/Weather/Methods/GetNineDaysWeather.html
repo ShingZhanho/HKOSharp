@@ -28,17 +28,22 @@
                     <i class="material-icons icon">arrow_forward_ios</i>
                     <a href="/Docs/LibHKOSharp/Weather/">Weather</a>
                     <i class="material-icons icon">arrow_forward_ios</i>
-                    <a>GetLocalWeatherForecastAync()</a>
+                    <a>GetNineDaysWeather()</a>
                 </p>
             </div>
           <div id="main-content">
-                <h1>Weather.GetLocalWeatherForecastAsync Method</h1>
+                <h1>Weather.GetNineDaysWeather Method</h1>
+              <p>Gets the future 9 days' weather forecast.</p>
               <div class="separator-line"></div>
               <div class="overload-block" id="language">
-                <h2>GetLocalWeatherForecastAsync(Language)</h2>
+                <h2>GetNineDaysWeather(Language)</h2>
                 <pre><code class="csharp">
-                public static async Task&lt;LocalWeatherForecast&gt; GetLocalWeatherForecastAsync(Language language);
+                public static NineDaysWeather GetNineDaysWeather(Language language);
                 </code></pre>
+                  <div class="alert alert-warning">
+                      <h1 class="alert alert-warning"><span class="alert-icon material-icons">warning</span>Warning</h1>
+                      <p class="alert-text">This method will block the calling thread. Use <a class="alert alert-warning" href="GetNineDaysWeatherAsync.html">GetNineDaysWeatherAsync()</a> instead.</p>
+                  </div>
                 <div class="separator-blank"></div>
                 <div class="content-block" id="language-para">
                   <h3>Parameters</h3>
@@ -48,8 +53,8 @@
                   <div class="content-block" id="language-return">
                       <h3>Returns</h3>
                       <p>
-                      Task&lt;<a href="/Docs/LocalWeatherForecast/">LocalWeatherForecast</a>&gt;<br>
-                          A task represents an asynchronous get LocalWeatherForecast operation. If failed, its result will be null.</p>
+                      <a href="/Docs/NineDaysWeather/">NineDaysWeather</a><br>
+                          An object that contains information about future 9 days' forecast from API. If failed, null is returned.</p>
                   </div>
               </div> 
           </div>
