@@ -47,17 +47,28 @@ div.alert-warning {
     background-color: #F0B069
 }
 
+div.alert-tips {
+    border-style: none;
+    background-color: #D2F9D2;
+}
+
 h1.alert-notes {
     color: #2463C4;
 }
 
 h1.alert-warning {
-    color:#DB5F00;
+    color: #DB5F00;
+}
+
+h1.alert-tips {
+    color: #0F7E0F;
 }
 
 a.alert-warning {background-color: #FCC88F;}
 
 a.alert-notes {background-color: #DCF2FF;}
+
+a.alert-tips {background-color: #E3F7E3; border: 1px solid #0F7E0F;}
 
 table.children-members {
     width: 100%;
@@ -77,4 +88,58 @@ td.child-member-name {
 
 pre.code-inline {
     display: table;
+}
+
+div.inheritance {
+    display: flex;
+    box-shadow: 0px 0px 10px 0px #C2C2C2;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+}
+
+p.inheritance {
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+}
+
+span.inheritance {
+    display: inline-flex;
+    line-height: normal;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a.inheritance-target {
+    background-color: #4BC6F3;
+    color: black;
+    padding: 3px;
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+a.inheritance:link {text-decoration: none; color: black;}
+a.inheritance:visited {text-decoration: none; color: black;}
+
+a.inheritance {
+    border: 2px solid #4BC6F3;
+    padding: 3px;
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td.inheritance {
+    max-width: 5%;
+    text-align: center;
+    color: #2364C6;
+}
+
+td.enum-value {
+    max-width: 5%;
+    text-align: center;
 }
