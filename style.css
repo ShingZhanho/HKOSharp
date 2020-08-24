@@ -94,6 +94,14 @@ a:visited {color: #438DDA;}
 
 div.separator-blank {height: 20px;}
 
+div.separator-line {
+    height: 1px;
+    width: auto;
+    background-color: #525252;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 li {
     line-height: 1.5;
 }

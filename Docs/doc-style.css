@@ -30,8 +30,17 @@ div.alert-notes {
     background-color: #A9DFFF;
 }
 
+div.alert-warning {
+    border-style: none;
+    background-color: #F0B069
+}
+
 h1.alert-notes {
     color: #2463C4;
+}
+
+h1.alert-warning {
+    color:#DB5F00;
 }
 
 table.children-members {
@@ -48,4 +57,8 @@ td.child-member-name {
     padding-right: 15px;
     padding-left: 5px;
     max-width: 50%;
+}
+
+pre.code-inline {
+    display: table;
 }
