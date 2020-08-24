@@ -22,33 +22,35 @@
                 <p style="vertical-align: middle; margin: 0px;">
                     <a href="/Docs/">Documentations</a>
                 <i class="material-icons icon">arrow_forward_ios</i>
-                LibHKOSharp
+                <a href="/Docs/LibHKOSharp/">LibHKOSharp</a>
+                    <i class="material-icons icon">arrow_forward_ios</i>
+                    <a>Weather</a>
                 </p>
             </div>
           <div id="main-content">
-                <h1>LibHKOSharp Class</h1>
-                <p>A class inncluding all methods for accessing HKO API.</p>
+                <h1>Weather Class</h1>
+                <p>Handles information about forecasts, weather warning etc.</p>
                 <pre><code class="csharp">
-                public static class LibHKOSharp
+                public static class Weather
                 </code></pre>
-                <div class="alert alert-notes">
-                    <h1 class="alert alert-notes"><span class="material-icons alert-icon">emoji_objects</span> Note</h1>
-                    <p class="alert-text">LibHKOSharp does not have methods itself. You should call its sub classes' methods in order to perform any action.</p>
-            </div>
               <div class="separator-blank"></div>
-              <h2>Sub Classes</h2>
+              <h2>Methods</h2>
               <table class="children-members">
                   <tr>
-                      <td class="child-member-name"><a href="./Weather/">Weather</a></td>
-                      <td><p>Class which handles information about forecast, weather warnings etc.</p></td>
+                      <td class="child-member-name"><a href="./Methods/GetLocalWeatherForecast.html">GetLocalWeatherForecast(Language)</a></td>
+                      <td><p>Returns an LocalWeatherForecast object which includes extracted information about today's local weather forecast in specified language.</p></td>
                   </tr>
                   <tr>
-                      <td class="child-member-name">Earthquake</td>
-                      <td><p>Class which handles information about earthquake reports etc.</p></td>
+                      <td class="child-member-name"><a href="./Methods/GetLocalWeatherForecastAsync.html">GetLocalWeatherForecastAsync(Language)</a></td>
+                      <td><p>Returns a task that represents the asynchronous get local weather forecast operation.</p></td>
                   </tr>
                   <tr>
-                      <td class="child-member-name">OpenData</td>
-                      <td><p>Class which handles information about today’s highest temperature, lowest temperature etc.</p></td>
+                      <td class="child-member-name"><a href="./Methods/GetNineDaysWeather.html">GetNineDaysWeather(Language)</a></td>
+                      <td><p>Returns an NineDaysWeather object which includes extracted information about future nine days' forecast in specified language.</p></td>
+                  </tr>
+                  <tr>
+                      <td class="child-member-name"><a href="./Methods/GetNineDaysWeatherAsync.html">GetNineDaysWeatherAsync(Language)</a></td>
+                      <td><p>Returns a task that represents the asynchronous get future nine days' forecast in specified language.</p></td>
                   </tr>
               </table>
           </div>
