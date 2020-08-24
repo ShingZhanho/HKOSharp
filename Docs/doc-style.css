@@ -55,7 +55,9 @@ h1.alert-warning {
     color:#DB5F00;
 }
 
-a.alert-warning {background-color: #FCC88F}
+a.alert-warning {background-color: #FCC88F;}
+
+a.alert-notes {background-color: #DCF2FF;}
 
 table.children-members {
     width: 100%;
