@@ -1,4 +1,3 @@
-using HKOSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HKOSharp.LibHKOSharp;
 
