@@ -13,6 +13,11 @@ namespace HKOSharp {
         public static class Weather {
             // public methods
 
+            /// <summary>
+            /// Gets today's local weather forecast in specified language (English default).
+            /// </summary>
+            /// <param name="language">Language of forecast</param>
+            /// <returns>LocalWeatherForecast if succeeded, null if failed.</returns>
             public static LocalWeatherForecast GetLocalWeatherForecast(Language language = Language.English) {
                 var json = HttpRequest(GenerateRequestUrl(language, WeatherDataType.LocalWeatherForecast));
                 return string.IsNullOrEmpty(json)
@@ -22,6 +27,11 @@ namespace HKOSharp {
                         : null;
             }
 
+            /// <summary>
+            /// Gets today's local weather forecast in specified language (English default) asynchronously.
+            /// </summary>
+            /// <param name="language">Language of forecast</param>
+            /// <returns>A task represents the get local weather forecast action.</returns>
             public static async Task<LocalWeatherForecast> GetLocalWeatherForecastAsync(
                 Language language = Language.English) {
                 var json = 
@@ -35,6 +45,7 @@ namespace HKOSharp {
             
             
             // private methods
+            
             private static string GenerateRequestUrl(Language language, WeatherDataType dataType) {
                 var url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?";
 
