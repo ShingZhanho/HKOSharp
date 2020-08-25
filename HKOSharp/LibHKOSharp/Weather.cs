@@ -1,4 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
     namespace LibHKOSharp {
@@ -8,9 +13,24 @@ namespace HKOSharp {
         public static class Weather {
             // public methods
 
-            public static LocalWeatherForecast GetLocalWeatherForecast(Language language) {
+            public static LocalWeatherForecast GetLocalWeatherForecast(Language language = Language.English) {
                 var json = HttpRequest(GenerateRequestUrl(language, WeatherDataType.LocalWeatherForecast));
-                return string.IsNullOrEmpty(json) ? null : new LocalWeatherForecast(json);
+                return string.IsNullOrEmpty(json)
+                    ? null
+                    : JsonIsValid(json) 
+                        ? new LocalWeatherForecast(json) 
+                        : null;
+            }
+
+            public static async Task<LocalWeatherForecast> GetLocalWeatherForecastAsync(
+                Language language = Language.English) {
+                var json = 
+                    await HttpRequestAsync(GenerateRequestUrl(language, WeatherDataType.LocalWeatherForecast));
+                return string.IsNullOrEmpty(json)
+                    ? null
+                    : JsonIsValid(json)
+                        ? new LocalWeatherForecast(json)
+                        : null;
             }
             
             
@@ -21,7 +41,8 @@ namespace HKOSharp {
                 url += language switch {
                     Language.English => "lang=en",
                     Language.TraditionalChinese => "lang=tc",
-                    Language.SimplifiedChinese => "lang=sc"
+                    Language.SimplifiedChinese => "lang=sc",
+                    _ => "lang=en"
                 };
 
                 url += dataType switch {
@@ -31,8 +52,53 @@ namespace HKOSharp {
                 return url;
             }
 
+            private static bool JsonIsValid(string json) {
+                try {
+                    JObject.Parse(json);
+                }
+                catch {
+                    return false;
+                }
+                return true;
+            }
+
             private static string HttpRequest(string url) {
-                return null;
+                string response;
+                try {
+                    var request = WebRequest.Create(url);
+                    request.Method = "GET";
+                    using var responseStream = request.GetResponse().GetResponseStream();
+                    using var reader = new StreamReader(responseStream);
+                    response = reader.ReadToEnd();
+                }
+                catch (Exception e) {
+                    Console.WriteLine(e);
+                    return null;
+                }
+
+                return response;
+            }
+
+            private static async Task<string> HttpRequestAsync(string url) {
+                string response;
+                try {
+                    var request = WebRequest.Create(url);
+                    request.Method = "GET";
+                    WebResponse taskRequest;
+                    using (taskRequest = await request.GetResponseAsync()) {
+                        using (var responseStream = taskRequest.GetResponseStream()) {
+                            using (var reader = new StreamReader(responseStream)) {
+                                response = await reader.ReadToEndAsync();
+                            }
+                        }
+                    }
+                }
+                catch (Exception e) {
+                    Console.WriteLine(e);
+                    return null;
+                }
+
+                return response;
             }
         }
     }
