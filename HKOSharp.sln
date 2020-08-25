@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibHKOSharp", "LibHKOSharp\LibHKOSharp.csproj", "{815461FF-0A15-46D1-8732-C09FAA60C8CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugTool", "DebugTool\DebugTool.csproj", "{A475712B-BD02-4407-B9BD-31CA40B52E81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibHKOSharp", "LibHKOSharp\LibHKOSharp.csproj", "{63275CEC-D153-45BB-B955-B40CA9F7C60E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{815461FF-0A15-46D1-8732-C09FAA60C8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{815461FF-0A15-46D1-8732-C09FAA60C8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{815461FF-0A15-46D1-8732-C09FAA60C8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{815461FF-0A15-46D1-8732-C09FAA60C8CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A475712B-BD02-4407-B9BD-31CA40B52E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A475712B-BD02-4407-B9BD-31CA40B52E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A475712B-BD02-4407-B9BD-31CA40B52E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A475712B-BD02-4407-B9BD-31CA40B52E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
