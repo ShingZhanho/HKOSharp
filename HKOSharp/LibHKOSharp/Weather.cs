@@ -23,7 +23,7 @@ namespace HKOSharp {
                 return string.IsNullOrEmpty(json)
                     ? null
                     : JsonIsValid(json) 
-                        ? new LocalWeatherForecast(json) 
+                        ? new LocalWeatherForecast(json, language) 
                         : null;
             }
 
@@ -39,7 +39,7 @@ namespace HKOSharp {
                 return string.IsNullOrEmpty(json)
                     ? null
                     : JsonIsValid(json)
-                        ? new LocalWeatherForecast(json)
+                        ? new LocalWeatherForecast(json, language)
                         : null;
             }
             

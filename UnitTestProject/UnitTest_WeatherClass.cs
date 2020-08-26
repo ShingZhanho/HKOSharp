@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HKOSharp.LibHKOSharp;
 
@@ -10,7 +11,8 @@ namespace UnitTestProject {
             var result = Weather.GetLocalWeatherForecast();
             
             //asserts
-            Assert.IsNotNull(result);
+            Console.WriteLine(result.ToString());
+            Assert.IsTrue(result.IsSucceeded, result.FailMessage);
         }
 
         [TestMethod]
@@ -19,7 +21,8 @@ namespace UnitTestProject {
             var result = Weather.GetLocalWeatherForecastAsync().Result;
 
             //asserts
-            Assert.IsNotNull(result);
+            Console.WriteLine(result.ToString());
+            Assert.IsTrue(result.IsSucceeded, result.FailMessage);
         }
     }
 }

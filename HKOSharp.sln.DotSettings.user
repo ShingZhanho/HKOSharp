@@ -1,6 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=381e0e6d_002D15c8_002D4ce4_002D913e_002D803ed950e8f2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UnitTest_WeatherClass" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=25fdafad_002D3f93_002D46f3_002D9dcf_002Ddd1ddfb6594c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UnitTest_WeatherClass #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::F178F391-06FF-404D-B85D-A1B28DFD7578::.NETCoreApp,Version=v3.1::UnitTestProject.UnitTest_WeatherClass&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
