@@ -4,6 +4,15 @@ using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
 
+    public class NineDaysWeather {
+        internal NineDaysWeather(string json, Language language) {
+            
+        }
+    }
+
+    /// <summary>
+    /// Contains all information about a specific day's weather forecast
+    /// </summary>
     public class OneDayWeather {
         internal OneDayWeather(string json, Language language) {
             Language = language;

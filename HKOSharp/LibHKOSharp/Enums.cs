@@ -11,6 +11,7 @@ namespace HKOSharp {
     }
 
     internal enum WeatherDataType {
-        LocalWeatherForecast
+        LocalWeatherForecast,
+        NineDaysWeather
     }
 }

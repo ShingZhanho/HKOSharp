@@ -42,6 +42,24 @@ namespace HKOSharp {
                         ? new LocalWeatherForecast(json, language)
                         : null;
             }
+
+            public static NineDaysWeather GetNineDaysWeather(Language language = Language.English) {
+                var json = HttpRequest(GenerateRequestUrl(language, WeatherDataType.NineDaysWeather));
+                return string.IsNullOrEmpty(json)
+                    ? null
+                    : JsonIsValid(json)
+                        ? new NineDaysWeather(json, language)
+                        : null;
+            }
+
+            public static async Task<NineDaysWeather> GetNineDaysWeatherAsync(Language language = Language.English) {
+                var json = await HttpRequestAsync(GenerateRequestUrl(language, WeatherDataType.NineDaysWeather));
+                return string.IsNullOrEmpty(json)
+                    ? null
+                    : JsonIsValid(json)
+                        ? new NineDaysWeather(json, language)
+                        : null;
+            }
             
             
             // private methods
@@ -58,6 +76,7 @@ namespace HKOSharp {
 
                 url += dataType switch {
                     WeatherDataType.LocalWeatherForecast => "&dataType=flw",
+                    WeatherDataType.NineDaysWeather => "&dataType=fnd"
                 };
 
                 return url;
