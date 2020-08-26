@@ -6,7 +6,45 @@ namespace HKOSharp {
 
     public class OneDayWeather {
         internal OneDayWeather(string json, Language language) {
-            
+            Language = language;
+            if (json is null) {
+                IsSucceeded = false;
+                FailMessage = "Cannot instantiate OneDayWeather object. JSON string is null.";
+                return;
+            }
+
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo is null) {
+                IsSucceeded = false;
+                FailMessage = $"Cannot instantiate OneDayWeather object. JSON string is invalid. JSON string: {json}";
+                return;
+            }
+
+            try {
+                Week = jo["week"].ToString();
+                ForecastWind = jo["forecastWind"].ToString();
+                ForecastWeather = jo["forecastWeather"].ToString();
+                
+                ForecastMaxTemp = Convert.ToDouble(jo["forecastMaxtemp"]["value"].ToString());
+                ForecastMinTemp = Convert.ToDouble(jo["forecastMintemp"]["value"].ToString());
+                ForecastMaxRh = Convert.ToDouble(jo["forecastMaxrh"]["value"].ToString());
+                ForecastMinRh = Convert.ToDouble(jo["forecastMinrh"]["value"].ToString());
+                ForecastIcon = Convert.ToInt32(jo["ForecastIcon"].ToString());
+
+                var dateString = jo["forecastDate"].ToString(); // format: yyyyMMdd
+                ForecastDate = new DateTime(
+                    int.Parse(dateString.Substring(0,4)),
+                    int.Parse(dateString.Substring(4, 2)),
+                    int.Parse(dateString.Substring(6)));
+            }
+            catch (Exception e) {
+                IsSucceeded = false;
+                FailMessage = 
+                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                return;
+            }
+
+            IsSucceeded = true;
         }
         
         // Fields
@@ -49,6 +87,7 @@ namespace HKOSharp {
         /// <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
         /// </summary>
         public int ForecastIcon { get; private set; }
+        private Language Language;
         
         // Fields indicating whether JSON deserializing is succeeded
         internal bool IsSucceeded { get; }
@@ -97,10 +136,7 @@ namespace HKOSharp {
         /// Represents when the sea temperature was recorded.
         /// </summary>
         public DateTime RecordTime { get; }
-        /// <summary>
-        /// Represents the data's language.
-        /// </summary>
-        public Language Language { get; }
+        private Language Language { get; }
         
         // Fields indicating if deserializing is succeeded
         internal bool IsSucceeded { get; set; }
@@ -170,8 +206,7 @@ namespace HKOSharp {
         /// Represents how deep the soil temperature was recorded.
         /// </summary>
         public double Depth { get; }
-        /// <inheritdoc cref="SeaTemp"/>
-        new public Language Language { get; }
+        private Language Language { get; }
         
         // Methods
         private const string ToStringTemplateEng = "Soil temperature {0}C was recorded at {1} in {2} ({3}m deep).";
