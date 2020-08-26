@@ -51,47 +51,85 @@ namespace HKOSharp {
         /// <summary>
         /// Represents the date of this forecast.
         /// </summary>
-        public DateTime ForecastDate { get; private set; }
+        public DateTime ForecastDate { get; }
         /// <summary>
         /// A string which represents the day of a week: Monday, Saturday etc.
         /// Language depends on the language parameter.
         /// </summary>
-        public string Week { get; private set; }
+        public string Week { get;  }
         /// <summary>
         /// A string which describes the wind of that day.
         /// </summary>
-        public string ForecastWind { get; private set; }
+        public string ForecastWind { get; }
         /// <summary>
         /// A string which describes the weather of that day.
         /// </summary>
-        public string ForecastWeather { get; private set; }
+        public string ForecastWeather { get; }
         /// <summary>
         /// Represents the maximum temperature of that day (in degrees Celsius).
         /// </summary>
-        public double ForecastMaxTemp { get; private set; }
+        public double ForecastMaxTemp { get; }
         /// <summary>
         /// Represents the minimum temperature of that day (in degrees Celsius).
         /// </summary>
-        public double ForecastMinTemp { get; private set; }
+        public double ForecastMinTemp { get; }
         /// <summary>
         /// Represents the highest relative humidity of that day (in percent).
         /// </summary>
-        public double ForecastMaxRh { get; private set; }
+        public double ForecastMaxRh { get; }
         /// <summary>
         /// Represents the lowest relative humidity of that day (in percent).
         /// </summary>
-        public double ForecastMinRh { get; private set; }
+        public double ForecastMinRh { get;}
         /// <summary>
         /// Represents number of the forecast icon of that day.
         /// Check the list of forecast icons
         /// <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
         /// </summary>
-        public int ForecastIcon { get; private set; }
+        public int ForecastIcon { get; }
         private Language Language;
         
         // Fields indicating whether JSON deserializing is succeeded
         internal bool IsSucceeded { get; }
         internal string FailMessage { get; }
+        
+        // Methods
+        private const string ToStringTemplateEng = "Weather forecast for {0}, {1}:\n" +
+                                                   "Weather: {2}\n" +
+                                                   "Wind: {3}\n" +
+                                                   "Temperature: {4}C - {5}C\n" +
+                                                   "Relative Humidity: {6}% - {7}%\n" +
+                                                   "Forecast Icon Code: {8}";
+        
+        private const string ToStringTemplateChiT = "以下為 {0}, {1} 的天氣預測:\n" +
+                                                   "天氣槪況: {2}\n" +
+                                                   "風力: {3}\n" +
+                                                   "溫度: {4}C 至 {5}C\n" +
+                                                   "相對濕度: {6}% 至 {7}%\n" +
+                                                   "天氣圖示編號: {8}";
+        
+        private const string ToStringTemplateChiS = "以下是 {0}, {1} 的天气预测:\n" +
+                                                    "天气概况: {2}\n" +
+                                                    "风力: {3}\n" +
+                                                    "温度: {4}C 至 {5}C\n" +
+                                                    "相对湿度: {6}% 至 {7}%\n" +
+                                                    "天气标志编号: {8}";
+
+        public override string ToString() {
+            // If failed
+            if (!IsSucceeded)
+                return $"This object has no information since it is marked as failed. Message: {FailMessage}";
+            
+            // If succeeded
+            return Language switch {
+                Language.English => string.Format(ToStringTemplateEng, ForecastDate, Week, ForecastWeather,
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+                Language.TraditionalChinese => string.Format(ToStringTemplateChiT, ForecastDate, Week, ForecastWeather,
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+                Language.SimplifiedChinese => string.Format(ToStringTemplateChiS, ForecastDate, Week, ForecastWeather,
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+            };
+        }
     }
     
     /// <summary>
