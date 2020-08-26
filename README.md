@@ -10,7 +10,7 @@ LibHKOSharp is a C# library which allows you to access the Hong Kong Observatory
 
 # ToDo list
 
-1. ‼️ Rebuild all code with .NET Standard or .NET Core. (Give your opinion about which one to use in issues page!)
+1. ‼️ Rebuild all code with .NET Standard.
 
 # Build
 
