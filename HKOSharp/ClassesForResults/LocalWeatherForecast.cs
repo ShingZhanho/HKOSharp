@@ -18,7 +18,7 @@ namespace HKOSharp {
                 TCInfo = jo["tcInfo"].ToString();
                 FireDangerWarning = jo["fireDangerWarning"].ToString();
                 ForecastPeriod = jo["forecastPeriod"].ToString();
-                ForecastDesc = jo["forecastDecs"].ToString();
+                ForecastDesc = jo["forecastDesc"].ToString();
                 Outlook = jo["outlook"].ToString();
                 UpdateTime = DateTime.Parse(jo["updateTime"].ToString());
                 IsSucceeded = true;
