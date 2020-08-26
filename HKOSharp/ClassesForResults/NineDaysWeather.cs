@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
@@ -9,13 +10,32 @@ namespace HKOSharp {
 
         internal SeaTemp(JObject jObject, Language language) {
             Language = language;
+            if (jObject is null) {
+                IsSucceeded = false;
+                FailMessage = "Cannot instantiate SeaTemp object. JObject is null.";
+                return;
+            }
+
+            try {
+                Place = jObject["place"].ToString();
+                Temperature = Convert.ToDouble(jObject["value"].ToString());
+                RecordTime = DateTime.Parse(jObject["recordTime"].ToString());
+            }
+            catch (Exception e) {
+                IsSucceeded = false;
+                FailMessage = 
+                    $"JSON Deserializing failed. JSON string: {jObject}. Details:\n    {e.Source}\n    {e.Message}";
+                return;
+            }
+
+            IsSucceeded = true;
         }
         
         // Fields
-        public string Place { get; protected set; }
-        public double Temperature { get; protected set; }
-        public DateTime RecordTime { get; protected set; }
-        public Language Language { get; protected set; }
+        public string Place { get; }
+        public double Temperature { get; }
+        public DateTime RecordTime { get; }
+        public Language Language { get; }
         
         // Fields indicating if deserializing is succeeded
         internal bool IsSucceeded { get; set; }
@@ -43,10 +63,34 @@ namespace HKOSharp {
     public class SoilTemp : SeaTemp {
         internal SoilTemp(string json, Language language) {
             Language = language;
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo is null) {
+                IsSucceeded = false;
+                FailMessage = "Cannot instantiate SoilTemp object. JSON string is null.";
+                return;
+            }
+
+            try {
+                Place = jo["place"].ToString();
+                Temperature = Convert.ToDouble(jo["value"].ToString());
+                RecordTime = DateTime.Parse(jo["recordTime"].ToString());
+                Depth = Convert.ToDouble(jo["depth"]["value"].ToString());
+            }
+            catch (Exception e){
+                IsSucceeded = false;
+                FailMessage = 
+                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+            }
+
+            IsSucceeded = true;
         }
         
         // Fields
-        public double Depth { get; private set; }
+        public string Place { get; }
+        public double Temperature { get; }
+        public DateTime RecordTime { get; }
+        public double Depth { get; }
+        public Language Language { get; }
         
         // Methods
         private const string ToStringTemplateEng = "Soil temperature {0}C was recorded at {1} in {2} ({3}m deep).";
