@@ -13,8 +13,11 @@
        - run: dotnet build
    
    upload-coverage:
-       - codev/upload:
-        file: "../UnitTest.dcvr"
+       executor: win/default
+
+       steps:
+         - codev/upload:
+          file: "../UnitTest.dcvr"
 
 workflows:
    build-and-upload:
