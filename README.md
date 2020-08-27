@@ -6,15 +6,19 @@ An unofficial C# Library of Hong Kong Observatory Open Data API
 
 ---
 
-<p align="center">
-    <img src="https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield"/>
-</p>
+![Build status](https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield)
 
-# What is LibHKOSharp?
+![Nuget version](https://img.shields.io/nuget/v/HKOSharp?color=blue&label=nuget)
+![GitHub latest version](https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&label=latest%20release)
 
-LibHKOSharp is a C# library which allows you to access the Hong Kong Observatory Open Data API without handling bunches of Http requests, responses or JSON.
+![License](https://img.shields.io/github/license/ShingZhanho/HKOSharp)
 
-# ToDo list
+
+# What is HKOSharp?
+
+HKOSharp is a C# library which allows you to access the Hong Kong Observatory Open Data API without handling bunches of Http requests, responses or JSON.
+
+# Todo list
 
 1. Update documentation for a recent rewrite.
 
@@ -35,22 +39,28 @@ To use LibHKOSharp in your project, there are several ways to do so:
 
 # Usage
 
-For the full usage of LibHKOSharp, you should read [documents page](https://hkosharp.shingzh.eu.org).
+For the full usage of HKOSharp, you should check [HKOSharp Documentations](https://hkosharp.shingzh.eu.org).
+> **WARNING: Library were rewritten recently and documentation may not be up-to-date.**
 
-Here are some examples of usages of LibHKOSharp:
+Here are some examples of usages of HKOSharp:
+
+```c#
+// Imports namespace
+using HKOSharp.LibHKOSharp;
+```
 
 ```c#
 // Gets today's Local Weather Forecast
-var localForecast = LibHKOSharp.Weather.GetLocalForecast(Language.English);
+var localForecast = Weather.GetLocalForecast(Language.English);
 Console.Write("Description of today's forecast: ");
 Console.Write(localForecast.ForecastDesc);
 // Output:
-// Description of today's forecast: Under the influence of an anticyclone aloft, the weather is ... (omited)
+// Description of today's forecast: Under the influence of an anticyclone aloft, the weather is ...
 ```
 
 ```c#
 // Gets latest Earthquake information
-var eqInfo = LibHKOSharp.Earthquake.GetLatestEqInfoAsnyc(Language.TraditionalChinese);
+var eqInfo = Earthquake.GetLatestEqInfoAsnyc(Language.TraditionalChinese);
 Console.Write("Latest Earthquake Report Region: ");
 Console.Write(eqInfo.Region);
 // Output:
@@ -58,8 +68,6 @@ Console.Write(eqInfo.Region);
 ```
 
 # Dependencies
-
-This library uses the following libraries:
 
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
 * .NET Standard 2.0
