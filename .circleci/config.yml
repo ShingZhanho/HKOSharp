@@ -11,7 +11,7 @@ jobs:
   test:
     executor: win/default
     steps:
-      - run: dotnet test .\UnitTestProject\UnitTestProject.csproj --results-directory:"." --collect"Code Coverage"
+      - run: dotnet test .\UnitTestProject\UnitTestProject.csproj --results-directory:"." --collect:"Code Coverage"
   upload-coverage:
     executor: win/default
     steps:
@@ -21,5 +21,9 @@ workflows:
   build-and-upload:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
       - upload-coverage
+          requires:
+            - test
