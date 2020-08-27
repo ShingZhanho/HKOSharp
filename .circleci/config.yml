@@ -2,6 +2,7 @@
 
  orbs:
   win: circleci/windows@2.2.0
+  codecov: codecov/codecov@1.1.1
 
  jobs:
    build:
@@ -11,3 +12,5 @@
        - checkout
        - run: echo Building...
        - run: dotnet build
+       - codecov/upload:
+        file: ../UnitTest.dcvr
