@@ -4,6 +4,12 @@
 An unofficial C# Library of Hong Kong Observatory Open Data API
 </p>
 
+---
+
+<p align="center">
+    <img src="https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield"/>
+</p>
+
 # What is LibHKOSharp?
 
 LibHKOSharp is a C# library which allows you to access the Hong Kong Observatory Open Data API without handling bunches of Http requests, responses or JSON.
