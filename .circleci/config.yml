@@ -29,10 +29,8 @@ jobs:
           command: OpenCover.Console.exe -register -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[HKOSharp*]* -[UnitTestProject*]*" -output:".\Code_Coverage.xml" -oldstyle
       - run:
           name: Generate Codecov script
-          command: curl -s https://codecov.io/bash > codecov
-      - run:
-          name: Change permission
-          command: chmod +x codecov
+          command: curl.exe -s https://codecov.io/bash > codecov
+      - run: $item = gi -literalpath codecov; $acl = $item.GetAccessControl(); $permission = "Everyone","FullControl","Allow"; $rule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission; $acl.SetAccessRule($rule); $item.SetAccessControl($acl)
       - run:
           name: Upload report
           command: ./codecov -f "Code_Coverage.xml"
