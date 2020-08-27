@@ -13,8 +13,7 @@ jobs:
     steps:
       - checkout
       - run: dotnet test .\UnitTestProject\UnitTestProject.csproj --results-directory:"." --collect:"Code Coverage"
-      - codecov/upload:
-        file: find . -type f -name '*.coverage'
+      - run: bash <(curl -s https://codecov.io/bash) -f '.coverage'
 workflows:
   version: 2
   build-test-and-upload:
