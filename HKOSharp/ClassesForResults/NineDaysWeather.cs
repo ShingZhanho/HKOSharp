@@ -19,7 +19,7 @@ namespace HKOSharp {
             var jo = (JObject) JsonConvert.DeserializeObject(json);
             if (jo is null) {
                 IsSucceeded = false;
-                FailMessage = $"Cannot instantiate NineDaysWeather object. JSON string is invalid, string: {json}";
+                FailMessage = $"Cannot instantiate NineDaysWeather object. JSON string is invalid.";
                 return;
             }
             
@@ -30,15 +30,14 @@ namespace HKOSharp {
             try {
                 GeneralSituation = jo["generalSituation"].ToString();
                 UpdateTime = DateTime.Parse(jo["updateTime"].ToString());
-                SeaTemp = new SeaTemp(jo, language);
             }
             catch (Exception e) {
                 IsSucceeded = false;
                 FailMessage = 
-                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                    $"JSON Deserializing failed. Details:\n    {e.Source}\n    {e.Message}";
                 return;
             }
-            
+
             // Assign OneDayWeather objects to WeatherForecast
             for (var i = 0; i < 9; i++) { // There will be nine weather forecasts in json
                 var weather = new OneDayWeather(jo["weatherForecast"][i].ToString(), language);
@@ -50,6 +49,16 @@ namespace HKOSharp {
                     return;
                 }
                 WeatherForecast.Add(weather);
+            }
+            
+            // Assign SeaTemp
+            SeaTemp = new SeaTemp(jo, language);
+            if (!SeaTemp.IsSucceeded) {
+                IsSucceeded = false;
+                FailMessage =
+                    "Deserialization failed. Error was caused by SeaTemp object. " +
+                    $"Message: {SeaTemp.FailMessage}";
+                return;
             }
             
             // Add SoilTemp objects to SoilTemps field
@@ -68,6 +77,7 @@ namespace HKOSharp {
                     FailMessage =
                         "Deserialization failed. Error was caused by SoilTemp object. " +
                         $"Message: {item.FailMessage}";
+                    return;
                 }
                 SoilTemps.Add(item);
             }
@@ -130,11 +140,11 @@ namespace HKOSharp {
         public override string ToString() {
             // If failed
             if (!IsSucceeded)
-                return $"This object has no information because it is marked as failed. Message: {FailMessage}";
+                return $"This NineDaysWeather object has no information because it is marked as failed. Message: {FailMessage}";
             
             var nineDaysWeather = "";
             foreach (var day in WeatherForecast) {
-                nineDaysWeather += day + "\n";
+                nineDaysWeather += day + "\n\n";
             }
 
             var soilTemps = "";
@@ -168,7 +178,7 @@ namespace HKOSharp {
             var jo = (JObject) JsonConvert.DeserializeObject(json);
             if (jo is null) {
                 IsSucceeded = false;
-                FailMessage = $"Cannot instantiate OneDayWeather object. JSON string is invalid. JSON string: {json}";
+                FailMessage = $"Cannot instantiate OneDayWeather object. JSON string is invalid.";
                 return;
             }
 
@@ -192,7 +202,7 @@ namespace HKOSharp {
             catch (Exception e) {
                 IsSucceeded = false;
                 FailMessage = 
-                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                    $"JSON Deserializing failed. Details:\n    {e.Source}\n    {e.Message}";
                 return;
             }
 
@@ -270,7 +280,7 @@ namespace HKOSharp {
         public override string ToString() {
             // If failed
             if (!IsSucceeded)
-                return $"This object has no information since it is marked as failed. Message: {FailMessage}";
+                return $"This OneDayWeather object has no information since it is marked as failed. Message: {FailMessage}";
             
             // If succeeded
             return Language switch {
@@ -299,14 +309,14 @@ namespace HKOSharp {
             }
 
             try {
-                Place = jObject["place"].ToString();
-                Temperature = Convert.ToDouble(jObject["value"].ToString());
-                RecordTime = DateTime.Parse(jObject["recordTime"].ToString());
+                Place = jObject["seaTemp"]["place"].ToString();
+                Temperature = Convert.ToDouble(jObject["seaTemp"]["value"].ToString());
+                RecordTime = DateTime.Parse(jObject["seaTemp"]["recordTime"].ToString());
             }
             catch (Exception e) {
                 IsSucceeded = false;
                 FailMessage = 
-                    $"JSON Deserializing failed. JSON string: {jObject}. Details:\n    {e.Source}\n    {e.Message}";
+                    $"JSON Deserializing failed. Details:\n    {e.Source}\n    {e.Message}";
                 return;
             }
 
@@ -343,7 +353,7 @@ namespace HKOSharp {
         public override string ToString() {
             // If failed
             if (!IsSucceeded) 
-                return $"This object has no information since it is marked as failed. Message: {FailMessage}";
+                return $"This SeaTemp object has no information since it is marked as failed. Message: {FailMessage}";
             
             // If succeeded
             return Language switch {
@@ -373,7 +383,7 @@ namespace HKOSharp {
             catch (Exception e){
                 IsSucceeded = false;
                 FailMessage = 
-                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                    $"JSON Deserializing failed. Details:\n    {e.Source}\n    {e.Message}";
             }
 
             IsSucceeded = true;
@@ -400,8 +410,8 @@ namespace HKOSharp {
         
         // Methods
         private const string ToStringTemplateEng = "Soil temperature {0}C was recorded at {1} in {2} ({3}m deep).";
-        private const string ToStringTemplateChiT = "在{0}於{1}測得地面溫度{2}C（深度{3}米}）。";
-        private const string ToStringTemplateChiS = "在{0}于{1}测得地面温度{2}C（深度{3}米}）。";
+        private const string ToStringTemplateChiT = "在{0}於{1}測得地面溫度{2}C（深度{3}米）。";
+        private const string ToStringTemplateChiS = "在{0}于{1}测得地面温度{2}C（深度{3}米）。";
 
         /// <summary>
         /// Returns a string which contains all the information in this object, language of string depends on language parameter.
@@ -409,13 +419,16 @@ namespace HKOSharp {
         public override string ToString() {
             // If failed
             if (!IsSucceeded)
-                return $"This object has no information since it is marked as failed. Message: {FailMessage}";
+                return $"This SoilTemp object has no information since it is marked as failed. Message: {FailMessage}";
             
             // If succeeded
             return Language switch {
-                Language.English => string.Format(ToStringTemplateEng, Temperature, RecordTime, Place, Depth),
-                Language.TraditionalChinese => string.Format(ToStringTemplateChiT, RecordTime, Place, Temperature, Depth),
-                Language.SimplifiedChinese => string.Format(ToStringTemplateChiS, RecordTime, Place, Temperature, Depth)
+                Language.English => string.Format(
+                    ToStringTemplateEng, Temperature.ToString(), RecordTime.ToString(), Place, Depth.ToString()),
+                Language.TraditionalChinese => string.Format(
+                    ToStringTemplateChiT, Place, RecordTime.ToString(), Temperature.ToString(), Depth.ToString()),
+                Language.SimplifiedChinese => string.Format(
+                    ToStringTemplateChiS, Place, RecordTime.ToString(), Temperature.ToString(), Depth.ToString())
             };
         }
     }

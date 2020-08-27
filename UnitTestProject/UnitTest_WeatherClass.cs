@@ -37,5 +37,37 @@ namespace UnitTestProject {
                 Assert.IsTrue(item.IsSucceeded);
             }
         }
+
+        [TestMethod]
+        public void GetNineDaysWeather_WithAllLanguages_NineDaysWeatherObject() {
+            //acts
+            var results = new[] {
+                Weather.GetNineDaysWeather(),
+                Weather.GetNineDaysWeather(Language.TraditionalChinese),
+                Weather.GetNineDaysWeather(Language.SimplifiedChinese)
+            };
+            
+            //asserts
+            foreach (var item in results) {
+                Console.WriteLine(item.ToString());
+                Assert.IsTrue(item.IsSucceeded);
+            }
+        }
+        
+        [TestMethod]
+        public void GetNineDaysWeatherAsync_WithAllLanguages_NineDaysWeatherObject() {
+            //acts
+            var results = new[] {
+                Weather.GetNineDaysWeatherAsync().Result,
+                Weather.GetNineDaysWeatherAsync(Language.TraditionalChinese).Result,
+                Weather.GetNineDaysWeatherAsync(Language.SimplifiedChinese).Result
+            };
+            
+            //asserts
+            foreach (var item in results) {
+                Console.WriteLine(item.ToString());
+                Assert.IsTrue(item.IsSucceeded);
+            }
+        }
     }
 }
