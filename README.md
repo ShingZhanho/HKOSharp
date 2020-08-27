@@ -31,8 +31,7 @@ To build the project, you need to:
 To use LibHKOSharp in your project, there are several ways to do so:
 
 * Build the project and import the `.dll` files manually;
-* Download `.dll` files from [Releases](/releases) page and import manually;
-* ~~Download from NuGet Package Manager~~ (WORKING IN PROGRESS);
+* Download from [NuGet Package Manager](https://www.nuget.org/packages/HKOSharp/);
 
 # Usage
 
