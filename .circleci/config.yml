@@ -22,9 +22,9 @@ workflows:
     jobs:
       - build
       - test:
-        requires:
+        needs:
           - build
       - upload-coverage:
-        requires:
+        needs:
           - build
           - test
