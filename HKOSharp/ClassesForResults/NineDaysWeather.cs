@@ -5,7 +5,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace HKOSharp {
-
+    /// <summary>
+    /// Contains all information about future nine days' weather forecast
+    /// </summary>
     public class NineDaysWeather {
         internal NineDaysWeather(string json, Language language) {
             if (json is null) {
@@ -122,6 +124,9 @@ namespace HKOSharp {
                                                     "{2}\n{3}\n" + // {2} -> SeaTemp, {3} -> SoilTemp
                                                     "更新时间: {4}";
 
+        /// <summary>
+        /// Returns a string which contains all information in this object.
+        /// </summary>
         public override string ToString() {
             // If failed
             if (!IsSucceeded)

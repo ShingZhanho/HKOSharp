@@ -43,6 +43,11 @@ namespace HKOSharp {
                         : null;
             }
 
+            /// <summary>
+            /// Gets future nine days' weather forecasts in specified language (English default).
+            /// </summary>
+            /// <param name="language">Language of forecasts</param>
+            /// <returns>NineDaysWeather object if succeeded, null if failed.</returns>
             public static NineDaysWeather GetNineDaysWeather(Language language = Language.English) {
                 var json = HttpRequest(GenerateRequestUrl(language, WeatherDataType.NineDaysWeather));
                 return string.IsNullOrEmpty(json)
@@ -52,6 +57,11 @@ namespace HKOSharp {
                         : null;
             }
 
+            /// <summary>
+            /// Gets future nine days' weather forecasts in specified language (English default) asynchronously.
+            /// </summary>
+            /// <param name="language">Language of forecasts</param>
+            /// <returns>A task represents the asynchronous get nine days weather operation.</returns>
             public static async Task<NineDaysWeather> GetNineDaysWeatherAsync(Language language = Language.English) {
                 var json = await HttpRequestAsync(GenerateRequestUrl(language, WeatherDataType.NineDaysWeather));
                 return string.IsNullOrEmpty(json)
