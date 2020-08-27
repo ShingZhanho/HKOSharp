@@ -10,7 +10,7 @@ LibHKOSharp is a C# library which allows you to access the Hong Kong Observatory
 
 # ToDo list
 
-1. ‼️ Rebuild all code with .NET Standard.
+1. Update documentation for a recent rewrite.
 
 # Build
 
@@ -57,5 +57,4 @@ Console.Write(eqInfo.Region);
 This library uses the following libraries:
 
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
-* .NET Framework 4.5 (`master`)
-* .NET Standard 2.0 (Being rewritten)
+* .NET Standard 2.0
