@@ -18,7 +18,8 @@ jobs:
       - codecov/upload:
         file: find . -type f -name '*.coverage'
 workflows:
-  build-and-upload:
+  version: 2
+  build-test-and-upload:
     jobs:
       - build
       - test:
