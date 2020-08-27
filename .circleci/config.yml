@@ -12,5 +12,8 @@
        - checkout
        - run: echo Building...
        - run: dotnet build
-       - codecov/upload:
-        file: ../UnitTest.dcvr
+
+   codecov-upload-report:
+    steps:
+      - codecov/upload:
+        file: "../UnitTest.dcvr"
