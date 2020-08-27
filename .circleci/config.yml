@@ -11,10 +11,5 @@
      steps:
        - checkout
        - run: dotnet build
-
-   codecov-upload-report:
-    executor: win/default
-
-    steps:
       - codecov/upload:
         file: "../UnitTest.dcvr"
