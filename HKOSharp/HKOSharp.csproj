@@ -5,7 +5,7 @@
         <RootNamespace>LibHKOSharp</RootNamespace>
         <LangVersion>8</LangVersion>
         <Version>0.0.1</Version>
-        <Authors></Authors>
+        <Authors>Weasley Shing</Authors>
         <Company />
         <Product />
         <Description>An unofficial C# library for accessing Hong Kong Observatory's API.</Description>
@@ -15,10 +15,29 @@
 You can now use this library to:
 * Get local weather forecast
 * Get weather forecasts of future nine days</PackageReleaseNotes>
+        <NeutralLanguage>en-GB</NeutralLanguage>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageTags />
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <Copyright>WeasleyShing (c) 2020</Copyright>
+        <ApplicationIcon>HKOSharp_Logo.ico</ApplicationIcon>
+        <PackageIcon>HKOSharp_Logo.png</PackageIcon>
+        <PackageIconUrl />
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\LICENSE.md">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+      <None Include="..\ReadmeImages\HKOSharp_Logo.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>
