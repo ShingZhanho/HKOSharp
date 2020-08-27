@@ -22,6 +22,4 @@ workflows:
     jobs:
       - build
       - test:
-        needs: [build]
       - upload-coverage:
-        needs: [build, test]
