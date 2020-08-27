@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -27,7 +28,7 @@ namespace HKOSharp {
             try {
                 GeneralSituation = jo["generalSituation"].ToString();
                 UpdateTime = DateTime.Parse(jo["updateTime"].ToString());
-
+                SeaTemp = new SeaTemp(jo, language);
             }
             catch (Exception e) {
                 IsSucceeded = false;
@@ -35,7 +36,40 @@ namespace HKOSharp {
                     $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
                 return;
             }
-
+            
+            // Assign OneDayWeather objects to WeatherForecast
+            for (var i = 0; i < 9; i++) { // There will be nine weather forecasts in json
+                var weather = new OneDayWeather(jo["weatherForecast"][i].ToString(), language);
+                if (!weather.IsSucceeded) { // If weather object is failed to initiate
+                    IsSucceeded = false;
+                    FailMessage =
+                        "Deserialization failed. Error was caused by OneDayWeather object. " +
+                        $"Message: {weather.FailMessage}";
+                    return;
+                }
+                WeatherForecast.Add(weather);
+            }
+            
+            // Add SoilTemp objects to SoilTemps field
+            // Extract soilTemp token as independent json string
+            // Remove all line breaks before processing
+            var jsonSoilTemp = jo["soilTemp"]?.ToString().Replace("\r\n","");
+            // Remove unnecessary white-spaces
+            foreach (var match in Regex.Matches(jsonSoilTemp, @"\s{2,}|:\s{1,}"))
+                jsonSoilTemp = match.ToString().Contains(":")
+                    ? jsonSoilTemp.Replace(": ", ":")
+                    : jsonSoilTemp.Replace(match.ToString(), "");
+            foreach (var match in Regex.Matches(jsonSoilTemp, @"\{.*?\}\}")) {
+                var item = new SoilTemp(match.ToString(), language);
+                if (!item.IsSucceeded) { // If SoilTemp object is failed to deserialize
+                    IsSucceeded = false;
+                    FailMessage =
+                        "Deserialization failed. Error was caused by SoilTemp object. " +
+                        $"Message: {item.FailMessage}";
+                }
+                SoilTemps.Add(item);
+            }
+            
             IsSucceeded = true;
         }
         
@@ -68,6 +102,50 @@ namespace HKOSharp {
         // Fields indicating if JSON deserializing is succeeded
         public bool IsSucceeded { get; }
         public string FailMessage { get; }
+        
+        // Methods
+        private const string ToStringTemplateEng = "General Situation: {0}\n" +
+                                                   "Weather forecast of future nine days:\n\n" +
+                                                   "{1}\n\n" +
+                                                   "{2}\n{3}\n" + // {2} -> SeaTemp, {3} -> SoilTemp
+                                                   "Updated: {4}";
+        
+        private const string ToStringTemplateChiT = "槪況: {0}\n" +
+                                                   "未來九天天氣:\n\n" +
+                                                   "{1}\n\n" +
+                                                   "{2}\n{3}\n" + // {2} -> SeaTemp, {3} -> SoilTemp
+                                                   "更新時間: {4}";
+        
+        private const string ToStringTemplateChiS = "概况: {0}\n" +
+                                                    "未来九天天气:\n\n" +
+                                                    "{1}\n\n" +
+                                                    "{2}\n{3}\n" + // {2} -> SeaTemp, {3} -> SoilTemp
+                                                    "更新时间: {4}";
+
+        public override string ToString() {
+            // If failed
+            if (!IsSucceeded)
+                return $"This object has no information because it is marked as failed. Message: {FailMessage}";
+            
+            var nineDaysWeather = "";
+            foreach (var day in WeatherForecast) {
+                nineDaysWeather += day + "\n";
+            }
+
+            var soilTemps = "";
+            foreach (var temp in SoilTemps) {
+                soilTemps += temp + "\n";
+            }
+
+            return Language switch {
+                Language.English => string.Format(ToStringTemplateEng, GeneralSituation, nineDaysWeather
+                ,SeaTemp, SeaTemp, UpdateTime),
+                Language.TraditionalChinese => string.Format(ToStringTemplateChiT, GeneralSituation, nineDaysWeather
+                    ,SeaTemp, SeaTemp, UpdateTime),
+                Language.SimplifiedChinese => string.Format(ToStringTemplateChiS, GeneralSituation, nineDaysWeather
+                    ,SeaTemp, SeaTemp, UpdateTime)
+            };
+        }
     }
 
     /// <summary>
