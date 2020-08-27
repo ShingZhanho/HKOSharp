@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -6,8 +7,67 @@ namespace HKOSharp {
 
     public class NineDaysWeather {
         internal NineDaysWeather(string json, Language language) {
+            if (json is null) {
+                IsSucceeded = false;
+                FailMessage = "Cannot instantiate NineDaysWeather object. JSON string is null.";
+                return;
+            }
+
+            var jo = (JObject) JsonConvert.DeserializeObject(json);
+            if (jo is null) {
+                IsSucceeded = false;
+                FailMessage = $"Cannot instantiate NineDaysWeather object. JSON string is invalid, string: {json}";
+                return;
+            }
             
+            Language = language;
+            WeatherForecast = new List<OneDayWeather>();
+            SoilTemps = new List<SoilTemp>();
+
+            try {
+                GeneralSituation = jo["generalSituation"].ToString();
+                UpdateTime = DateTime.Parse(jo["updateTime"].ToString());
+
+            }
+            catch (Exception e) {
+                IsSucceeded = false;
+                FailMessage = 
+                    $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                return;
+            }
+
+            IsSucceeded = true;
         }
+        
+        // Fields
+        /// <summary>
+        /// A string of general situation.
+        /// </summary>
+        public string GeneralSituation { get; }
+        /// <summary>
+        /// A list of OneDayWeather objects. Contains future 9 days' weather forecasts.
+        /// </summary>
+        public List<OneDayWeather> WeatherForecast { get; }
+        /// <summary>
+        /// Represents the time of this forecast was updated.
+        /// </summary>
+        public DateTime UpdateTime { get; }
+        /// <summary>
+        /// A SeaTemp object. Contains information about sea temperature.
+        /// </summary>
+        public SeaTemp SeaTemp { get; }
+        /// <summary>
+        /// A list of SoilTemp object. Contains information of soil temperature from different station.
+        /// </summary>
+        public List<SoilTemp> SoilTemps { get; }
+        /// <summary>
+        /// Represents the language of these weather forecasts.
+        /// </summary>
+        public Language Language { get; }
+        
+        // Fields indicating if JSON deserializing is succeeded
+        public bool IsSucceeded { get; }
+        public string FailMessage { get; }
     }
 
     /// <summary>
