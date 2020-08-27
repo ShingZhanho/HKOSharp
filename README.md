@@ -7,6 +7,7 @@ An unofficial C# Library of Hong Kong Observatory Open Data API
 ---
 
 ![Build status](https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield)
+[![codecov](https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg)](https://codecov.io/gh/ShingZhanho/HKOSharp)
 
 ![Nuget version](https://img.shields.io/nuget/v/HKOSharp?color=blue&label=nuget)
 ![GitHub latest version](https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&label=latest%20release)
