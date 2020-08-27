@@ -9,4 +9,5 @@
     
      steps:
        - checkout
+       - run: echo Building...
        - run: dotnet build
