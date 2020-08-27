@@ -23,8 +23,8 @@ workflows:
     jobs:
       - build
       - test:
-          requires:
-            - build
-      - upload-coverage
-          requires:
-            - test
+        requires:
+          - build
+      - upload-coverage:
+        requires:
+          - test
