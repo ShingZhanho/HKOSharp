@@ -11,7 +11,7 @@ jobs:
   upload-coverage:
     executor: win/default
     steps:
-      - codev/upload: null
+      - codecov/upload: null
         file: ../UnitTest.dcvr
 workflows:
   build-and-upload:
