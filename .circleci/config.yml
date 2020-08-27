@@ -8,13 +8,23 @@ jobs:
     steps:
       - checkout
       - run: dotnet build
+  test:
+    executor: win/default
+    steps:
+      - run: dotnet test .\UnitTestProject\UnitTestProject.csproj --results-directory:"." --collect"Code Coverage"
   upload-coverage:
     executor: win/default
     steps:
-      - codecov/upload: null
-        file: ../UnitTest.dcvr
+      - codecov/upload:
+        file: find . -type f -name '*.coverage'
 workflows:
   build-and-upload:
     jobs:
       - build
-      - upload-coverage
+      - test
+        requires:
+          - build
+      - upload-coverage:
+        requires:
+          - build
+          - test
