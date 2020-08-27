@@ -57,7 +57,5 @@ Console.Write(eqInfo.Region);
 This library uses the following libraries:
 
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
-
-# Prerequisites
-
-* .NET Framework 4.5 or above
+* .NET Framework 4.5 (`master`)
+* .NET Standard 2.0 (Being rewritten)
