@@ -1,26 +1,20 @@
- version: 2.1
-
- orbs:
+version: 2.1
+orbs:
   win: circleci/windows@2.2.0
   codecov: codecov/codecov@1.1.1
-
- jobs:
-   build:
-     executor: win/default     
-    
-     steps:
-       - checkout
-       - run: dotnet build
-   
-   upload-coverage:
-       executor: win/default
-
-       steps:
-         - codev/upload:
-          file: "../UnitTest.dcvr"
-
+jobs:
+  build:
+    executor: win/default
+    steps:
+      - checkout
+      - run: dotnet build
+  upload-coverage:
+    executor: win/default
+    steps:
+      - codev/upload: null
+        file: ../UnitTest.dcvr
 workflows:
-   build-and-upload:
-     jobs:
-       - build
-       - upload-coverage
+  build-and-upload:
+    jobs:
+      - build
+      - upload-coverage
