@@ -1,18 +1,14 @@
 <p align="center">
 <img src="ReadmeImages/HKOSharp_Logo.png" height=200/><br>
-<strong>LibHKOSharp</strong><br>
-An unofficial C# Library of Hong Kong Observatory Open Data API
+<h1 align="center">
+C# Library of Hong Kong Observatory Open Data API</h1>
 </p>
 
----
-
-![Build status](https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield)
-[![codecov](https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg)](https://codecov.io/gh/ShingZhanho/HKOSharp)
-
-![Nuget version](https://img.shields.io/nuget/v/HKOSharp?color=blue&label=nuget)
-![GitHub latest version](https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&label=latest%20release)
-
-![License](https://img.shields.io/github/license/ShingZhanho/HKOSharp)
+<p align="center"><img src="https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield" alt="Build status">
+<a href="https://codecov.io/gh/ShingZhanho/HKOSharp"><img src="https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg" alt="codecov"></a>
+<img src="https://img.shields.io/nuget/v/HKOSharp?color=blue&amp;label=nuget" alt="Nuget version">
+<img src="https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&amp;label=latest%20release" alt="GitHub latest version">
+<img src="https://img.shields.io/github/license/ShingZhanho/HKOSharp" alt="License"></p>
 
 
 # What is HKOSharp?
@@ -33,10 +29,10 @@ To build the project, you need to:
 
 # Installation
 
-To use LibHKOSharp in your project, there are several ways to do so:
+To use HKOSharp in your project, there are several ways to do so:
 
 * Build the project and import the `.dll` files manually;
-* Download from [NuGet Package Manager](https://www.nuget.org/packages/HKOSharp/);
+* Install from [NuGet Package Manager](https://www.nuget.org/packages/HKOSharp/);
 
 # Usage
 

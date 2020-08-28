@@ -37,6 +37,15 @@ workflows:
   version: 2
   build-test-and-upload:
     jobs:
-      - build
-      - test
-      - generate-coverage-report
+      - build:
+          filters:
+            branches:
+              ignore: docs
+      - test:
+          filters:
+            branches:
+              ignore: docs
+      - generate-coverage-report:
+          filters:
+            branches:
+              ignore: docs
