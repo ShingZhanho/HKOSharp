@@ -6,3 +6,4 @@ riderModule.iml
 /.vs/
 /.idea/
 GH_TOKEN.txt
+*.user

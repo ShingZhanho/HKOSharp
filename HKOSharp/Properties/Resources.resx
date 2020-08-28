@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon50.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon51.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon52.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon53" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon53.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon54.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon60.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon61.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon62" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon62.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon63" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon63.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon64.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon65" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon65.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon70.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon71.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon72.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon73" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon73.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon74" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon74.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon75" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon75.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon76" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon76.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon77" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon77.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon80.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon81.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon82" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon82.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon83" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon83.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon84" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon84.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon85" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon85.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon90.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon91" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon91.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon92" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon92.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="icon93" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon93.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="JSON_iconDesc" xml:space="preserve">
+    <value>{"iconDescriptions":{"50":["Sunny","陽光充沛","阳光充沛"],"51":["Sunny Periods","間有陽光","间有阳光"],"52":["Sunny Intervals","短暫陽光","短暂阳光"],"53":["Sunny Periods with A Few Showers","間有陽光及幾陣驟雨","间有阳光及几阵骤雨"],"54":["Sunny Intervals with Showers","短暫陽光及有驟雨","短暂阳光及有骤雨"],"60":["Cloudy","多雲","多云"],"61":["Overcast","密雲","密云"],"62":["Light Rain","微雨","微雨"],"63":["Rain","雨","雨"],"64":["Heavy Rain","大雨","大雨"],"65":["Thunderstorms","雷暴","雷暴"],"70":["Fine ( use only in night-time on 1st of the Lunar Month )","天色良好 (只在農曆第一日晚間使用)","天色良好 (只在农曆第一日晚间使用)"],"71":["Fine ( use only in night-time on 2nd to 6th of the Lunar Month )","天色良好 (只在農曆第二日至第六日晚間使用)","天色良好 (只在农曆第二日至第六日晚间使用)"],"72":["Fine ( use only in night-time during 7th to 13th of Lunar Month )","天色良好 (只在農曆第七日至第十三日晚間使用)","天色良好 (只在农曆第七日至第十三日晚间使用)"],"73":["Fine ( use only in night-time during 14th to 17th of Lunar Month )","天色良好 (只在農曆第十四日 至第十七日晚間使用)","天色良好 (只在农曆第十四日 至第十七日晚间使用)"],"74":["Fine ( use only in night-time during 18th to 24th of Lunar Month )","天色良好 (只在農曆第十八日 至第二十四日晚間使用)","天色良好 (只在农曆第十八日 至第二十四日晚间使用)"],"75":["Fine ( use only in night-time during 25th to 30th of Lunar Month )","天色良好 (只在農曆第二十五日至第三十日晚間使用)","天色良好 (只在农曆第二十五日至第三十日晚间使用)"],"76":["Mainly Cloudy ( use only in night-time )","大致多雲 (只在晚間使用)","大致多云 (只在晚间使用)"],"77":["Mainly Fine ( use only in night-time )","天色大致良好 (只在晚間使用)","天色大致良好 (只在晚间使用)"],"80":["Windy","大風","大风"],"81":["Dry","乾燥","干燥"],"82":["Humid","潮濕","潮湿"],"83":["Fog","霧","雾"],"84":["Mist","薄霧","薄雾"],"85":["Haze","煙霞","烟雾"],"90":["Hot","熱","热"],"91":["Warm","暖","暖"],"92":["Cool","涼","凉"],"93":["Cold","冷","冷"]}}</value>
+  </data>
+</root>
