@@ -4,7 +4,7 @@
 C# Library of Hong Kong Observatory Open Data API</h1>
 </p>
 
-<p align="center"><img src="https://circleci.com/gh/ShingZhanho/HKOSharp.svg?style=shield" alt="Build status">
+<p align="center">
 <a href="https://codecov.io/gh/ShingZhanho/HKOSharp"><img src="https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg" alt="codecov"></a>
 <img src="https://img.shields.io/nuget/v/HKOSharp?color=blue&amp;label=nuget" alt="Nuget version">
 <img src="https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&amp;label=latest%20release" alt="GitHub latest version">
@@ -18,6 +18,8 @@ HKOSharp is a C# library which allows you to access the Hong Kong Observatory Op
 # Todo list
 
 1. Update documentation for a recent rewrite.
+2. Finish Weather class.
+3. Move from CircleCI to Travis CI.
 
 # Build
 
