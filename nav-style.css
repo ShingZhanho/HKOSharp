@@ -6,6 +6,14 @@ html, body {
     width: 100%;
     padding: 0;
     margin: 0;
+    background-color: transparent;
+}
+
+@supports (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) {
+    body {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 ul.nav {
