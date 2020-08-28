@@ -44,12 +44,12 @@ div.alert-notes {
 
 div.alert-warning {
     border-style: none;
-    background-color: #F0B069
+    background-color: #ffd88f;
 }
 
 div.alert-tips {
     border-style: none;
-    background-color: #D2F9D2;
+    background-color: #bef7be;
 }
 
 h1.alert-notes {
@@ -64,11 +64,11 @@ h1.alert-tips {
     color: #0F7E0F;
 }
 
-a.alert-warning {background-color: #FCC88F;}
+a.alert-warning {background-color: #ffecc9;}
 
 a.alert-notes {background-color: #DCF2FF;}
 
-a.alert-tips {background-color: #E3F7E3; border: 1px solid #0F7E0F;}
+a.alert-tips {background-color: #E3F7E3;}
 
 table.children-members {
     width: 100%;
@@ -142,4 +142,8 @@ td.inheritance {
 td.enum-value {
     max-width: 5%;
     text-align: center;
+}
+
+code.code-block {
+    border-radius: 6px;
 }

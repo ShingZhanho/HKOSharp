@@ -1,7 +1,6 @@
 html, body {
-	background: rgb(42,126,213);
-    background: linear-gradient(90deg, rgba(42,126,213,1) 0%, rgba(61,146,209,1) 35%, rgba(28,117,159,1) 100%);
-	overflow: hidden;
+    background: white;
+    overflow: hidden;
 	vertical-align: middle;
     height: 80px;
     width: 100%;
@@ -40,20 +39,20 @@ li.nav-link {
 
 div.separate {
     height: 60px;
-    width: 2px;
-    background-color: #236DA8;
+    width: 1px;
+    background-color: #dfdfdf;
 }
 
 a.nav-link {
     vertical-align: middle;
     font-size: 25px;
-    color: white;
+    color: #398ECB;
     margin-left: 30px;
     margin-right: 30px;
 }
 
-a.nav-link:link {color: white; text-decoration: none;}
-a.nav-link:visited {color: white; text-decoration: none;}
+a.nav-link:link {color: #398ECB; text-decoration: none;}
+a.nav-link:visited {color: #398ECB; text-decoration: none;}
 
 img.nav-icon {
 	height: 80%;
