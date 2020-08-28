@@ -55,7 +55,7 @@ jobs:
     - name: Install codecov
       uses: crazy-max/ghaction-chocolatey@v1
       with:
-        args: install opencov
+        args: install codecov
     - name: Upload report
       run: codecov.exe -f "./Code_Coverage.xml"
       
