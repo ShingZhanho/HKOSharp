@@ -186,70 +186,94 @@ namespace HKOSharp {
                 Week = jo["week"].ToString();
                 ForecastWind = jo["forecastWind"].ToString();
                 ForecastWeather = jo["forecastWeather"].ToString();
-                
+
                 ForecastMaxTemp = Convert.ToDouble(jo["forecastMaxtemp"]["value"].ToString());
                 ForecastMinTemp = Convert.ToDouble(jo["forecastMintemp"]["value"].ToString());
                 ForecastMaxRh = Convert.ToDouble(jo["forecastMaxrh"]["value"].ToString());
                 ForecastMinRh = Convert.ToDouble(jo["forecastMinrh"]["value"].ToString());
-                ForecastIcon = Convert.ToInt32(jo["ForecastIcon"].ToString());
+
+                // TODO: REMOVE THIS IN VERSION 1.0
+                ForecastIcon = Convert.ToInt32(jo["ForecastIcon"].ToString()); // Deprecated, to be removed in version 1.0
+
+                WeatherIcon = new WeatherIcon(Convert.ToInt32(jo["ForecastIcon"].ToString()),
+                    language);
+                if (WeatherIcon.Icon is null) {
+                    IsSucceeded = false;
+                    FailMessage = "JSON Deserializing failed. Error was caused by WeatherIcon object";
+                    return;
+                }
 
                 var dateString = jo["forecastDate"].ToString(); // format: yyyyMMdd
                 ForecastDate = new DateTime(
-                    int.Parse(dateString.Substring(0,4)),
+                    int.Parse(dateString.Substring(0, 4)),
                     int.Parse(dateString.Substring(4, 2)),
                     int.Parse(dateString.Substring(6)));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 IsSucceeded = false;
-                FailMessage = 
+                FailMessage =
                     $"JSON Deserializing failed. Details:\n    {e.Source}\n    {e.Message}";
                 return;
             }
 
             IsSucceeded = true;
         }
-        
+
         // Fields
         /// <summary>
         /// Represents the date of this forecast.
         /// </summary>
         public DateTime ForecastDate { get; }
+
         /// <summary>
         /// A string which represents the day of a week: Monday, Saturday etc.
         /// Language depends on the language parameter.
         /// </summary>
-        public string Week { get;  }
+        public string Week { get; }
+
         /// <summary>
         /// A string which describes the wind of that day.
         /// </summary>
         public string ForecastWind { get; }
+
         /// <summary>
         /// A string which describes the weather of that day.
         /// </summary>
         public string ForecastWeather { get; }
+
         /// <summary>
         /// Represents the maximum temperature of that day (in degrees Celsius).
         /// </summary>
         public double ForecastMaxTemp { get; }
+
         /// <summary>
         /// Represents the minimum temperature of that day (in degrees Celsius).
         /// </summary>
         public double ForecastMinTemp { get; }
+
         /// <summary>
         /// Represents the highest relative humidity of that day (in percent).
         /// </summary>
         public double ForecastMaxRh { get; }
+
         /// <summary>
         /// Represents the lowest relative humidity of that day (in percent).
         /// </summary>
-        public double ForecastMinRh { get;}
+        public double ForecastMinRh { get; }
+
         /// <summary>
         /// Represents number of the forecast icon of that day.
-        /// Check the list of forecast icons
-        /// <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
+        /// Check the list of forecast icons <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
         /// </summary>
+        [Obsolete("This field is obsolete. Use WeatherIcon field instead.")]
         public int ForecastIcon { get; }
-        private Language Language;
+        /// <summary>
+        /// Represents a forecast icon.
+        /// Check the list of forecast icons <see cref="https://www.hko.gov.hk/textonly/v2/explain/wxicon_c.htm">here</see>.
+        /// </summary>
+        public WeatherIcon WeatherIcon { get; }
+    
+
+    private Language Language;
         
         // Fields indicating whether JSON deserializing is succeeded
         internal bool IsSucceeded { get; }
@@ -285,11 +309,11 @@ namespace HKOSharp {
             // If succeeded
             return Language switch {
                 Language.English => string.Format(ToStringTemplateEng, ForecastDate, Week, ForecastWeather,
-                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, WeatherIcon.IconCode),
                 Language.TraditionalChinese => string.Format(ToStringTemplateChiT, ForecastDate, Week, ForecastWeather,
-                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, WeatherIcon.IconCode),
                 Language.SimplifiedChinese => string.Format(ToStringTemplateChiS, ForecastDate, Week, ForecastWeather,
-                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, ForecastIcon),
+                    ForecastWind, ForecastMinTemp, ForecastMaxTemp, ForecastMinRh, ForecastMaxRh, WeatherIcon.IconCode),
             };
         }
     }
