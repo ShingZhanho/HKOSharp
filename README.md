@@ -20,7 +20,8 @@ HKOSharp is a C# library which allows you to access the Hong Kong Observatory Op
 
 1. Update documentation for a recent rewrite.
 2. Finish Weather class.
-3. Move from CircleCI to Travis CI.
+3. ~Move from CircleCI to Travis CI.~ (Succeesfully moved to GitHub Workflow)
+4. Increase Code Coverage
 
 # Build
 
