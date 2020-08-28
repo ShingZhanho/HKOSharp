@@ -6,13 +6,14 @@ html, body {
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: transparent;
+    background-color: rgba(255,255,255,.95);
 }
 
-@supports (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) {
-    body {
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    html, body {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
+        background-color: transparent;
     }
 }
 
