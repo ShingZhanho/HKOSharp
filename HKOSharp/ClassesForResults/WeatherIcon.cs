@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using LibHKOSharp.Properties;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -15,9 +16,13 @@ namespace HKOSharp {
             var jo = (JObject) JsonConvert.DeserializeObject(Resources.JSON_iconDesc);
             if (jo is null) return;
 
-            IconDesc = jo["iconDescriptions"][$"{iconCode}"][$"{(int) language}"].ToString();
+            IconDesc = jo["iconDescriptions"][$"{iconCode}"][(int) language].ToString();
 
-            Icon = (Bitmap) Resources.ResourceManager.GetObject($"icon{IconCode}");
+            var imgBytes = (byte[]) Resources.ResourceManager.GetObject($"icon{IconCode}");
+            if (imgBytes is null) return;
+
+            using var stream = new MemoryStream(imgBytes);
+            Icon = (Bitmap) Image.FromStream(stream);
         }
         
         // Fields

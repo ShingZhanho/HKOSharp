@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+[assembly: InternalsVisibleTo("UnitTestProject")]
 namespace HKOSharp {
     /// <summary>
     /// Contains all information about future nine days' weather forecast
