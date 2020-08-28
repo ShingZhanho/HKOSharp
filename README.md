@@ -6,7 +6,6 @@ C# Library of Hong Kong Observatory Open Data API</h1>
 
 <p align="center">
   <img src="https://github.com/ShingZhanho/HKOSharp/workflows/Build/badge.svg" alt="Build Status">
-  <img src="https://github.com/ShingZhanho/HKOSharp/workflows/Test/badge.svg" alt="Test Status">
   <a href="https://codecov.io/gh/ShingZhanho/HKOSharp"><img src="https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg" alt="codecov"></a>
   <img src="https://img.shields.io/nuget/v/HKOSharp?color=blue&amp;label=nuget" alt="Nuget version">
   <img src="https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&amp;label=latest%20release" alt="GitHub latest version">
