@@ -1,0 +1,61 @@
+name: Build
+
+on:
+  push:
+    branches-ignore: [ docs ]
+  pull_request:
+    branches-ignore: [ docs ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+  
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Test
+      run: dotnet test
+
+  upload-coverage-report:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Install OpenCover.Portable
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install opencover.portable
+    - name: Generate report
+      run: OpenCover.Console.exe -register -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[HKOSharp*]* -[UnitTestProject*]*" -output:".\Code_Coverage.xml" -oldstyle
+    - name: Install codecov
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install codecov
+    - name: Upload report
+      run: codecov.exe -f "./Code_Coverage.xml"
+      
