@@ -94,7 +94,8 @@ namespace HKOSharp {
 
             private static bool JsonIsValid(string json) {
                 try {
-                    JObject.Parse(json);
+                    // Try parsing invalid json if specified
+                    JObject.Parse(UT_InvalidJson ?? json);
                 }
                 catch {
                     return false;
@@ -105,6 +106,9 @@ namespace HKOSharp {
             private static string HttpRequest(string url) {
                 string response;
                 try {
+                    if (UT_HttpRequestFail)
+                        throw new Exception("This was thrown by Unit Test");
+                    
                     var request = WebRequest.Create(url);
                     request.Method = "GET";
                     using var responseStream = request.GetResponse().GetResponseStream();
@@ -122,6 +126,9 @@ namespace HKOSharp {
             private static async Task<string> HttpRequestAsync(string url) {
                 string response;
                 try {
+                    if (UT_HttpRequestFail)
+                        throw new Exception("This was thrown by Unit Test");
+                    
                     var request = WebRequest.Create(url);
                     request.Method = "GET";
                     WebResponse taskRequest;
@@ -140,6 +147,10 @@ namespace HKOSharp {
 
                 return response;
             }
+            
+            // Internal fields for Unit Test
+            internal static string UT_InvalidJson { get; set; } // For testing parsed invalid json
+            internal static bool UT_HttpRequestFail { get; set; } // If true, throw exception while performing HTTP request
         }
     }
 }
