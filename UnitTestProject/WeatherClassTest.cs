@@ -11,8 +11,9 @@ namespace UnitTestProject {
      * [Method Name]_[Parameter(s)]_[Expected Return Value]() or
      * [Method Name]_[Parameter(s)]_T[Expected Exception]()
      *
-     * For testing a internal method, use same naming rules, add 'I' before method name.
-     * e.g. I[Method Name]_[Parameter(s)_[Expected Return Value]()
+     * For testing an internal method or the test method is for a private method,
+     * use same naming rules, add 'I' before method name.
+     * e.g. I[Method Name]_[Parameter(s)]_[Expected Return Value]()
      */
     
     [TestClass]
@@ -63,12 +64,24 @@ namespace UnitTestProject {
         }
 
         [TestMethod]
-        public void GetLocalWeatherForecast_HttpError_Null() {
+        public void IHttpRequest_HttpError_Null() {
             // Arrange
             Weather.UT_HttpRequestFail = true;
             
             // Acts
             var forecast = Weather.GetLocalWeatherForecast();
+            
+            // Asserts
+            Assert.IsNull(forecast);
+        }
+
+        [TestMethod]
+        public void IHttpRequestAsync_Error_Null() {
+            // Arrange
+            Weather.UT_HttpRequestFail = true;
+            
+            // Acts
+            var forecast = Weather.GetLocalWeatherForecastAsync().Result;
             
             // Asserts
             Assert.IsNull(forecast);

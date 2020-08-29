@@ -6,13 +6,23 @@ namespace HKOSharp {
     public class LocalWeatherForecast {
         internal LocalWeatherForecast(string json, Language language) {
             Language = language;
-            var jo = (JObject) JsonConvert.DeserializeObject(json);
-            if (jo is null) {
+            if (json is null) {
                 IsSucceeded = false;
                 FailMessage = "Cannot instantiate LocalWeatherForecast object. JSON string is null.";
                 return;
             }
 
+            JObject jo;
+            try {
+                jo = (JObject) JsonConvert.DeserializeObject(json);
+            }
+            catch (Exception e) {
+                Console.WriteLine(e);
+                IsSucceeded = false;
+                FailMessage = "Cannot instantiate LocalWeatherForecast object. JSON deserializing failed.";
+                return;
+            }
+            
             try {
                 GeneralSituation = jo["generalSituation"].ToString();
                 TCInfo = jo["tcInfo"].ToString();
@@ -27,11 +37,12 @@ namespace HKOSharp {
                 IsSucceeded = false;
                 FailMessage = 
                     $"JSON Deserializing failed. JSON string: {json}. Details:\n    {e.Source}\n    {e.Message}";
+                return;
             }
 
             IsSucceeded = true;
         }
-        
+
         // Fields
         /// <summary>
         /// Represents the general situation.
@@ -75,7 +86,7 @@ namespace HKOSharp {
         /// Represents the error message if <see cref="IsSucceeded"/> is false.
         /// </summary>
         public string FailMessage { get; }
-        
+
         // Methods
         private const string ToStringTemplateEng = "General Situation: {0}\n" +
                                                     "Tropical Cyclone Information: {1}\n" +
