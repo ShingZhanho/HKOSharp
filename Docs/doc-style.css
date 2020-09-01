@@ -1,0 +1,149 @@
+div.alert {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: block;
+    border-radius: 6px;
+    align-items: center;
+}
+
+h1.alert {
+    font-size: 18px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+a.alert{
+    display: inline-block;
+    border-radius: 6px;
+    border: 1px hidden black;
+    padding: 2px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+a.alert:link {text-decoration: none;}
+a.alert:visited {text-decoration: none;}
+
+p.alert-text {
+    margin: 0px;
+}
+
+span.alert-icon {
+    line-height: normal;
+    display: inline-flex;
+    vertical-align: center;
+    margin-right: 5px;
+}
+
+div.alert-notes {
+    border-style: none;
+    background-color: #A9DFFF;
+}
+
+div.alert-warning {
+    border-style: none;
+    background-color: #ffd88f;
+}
+
+div.alert-tips {
+    border-style: none;
+    background-color: #bef7be;
+}
+
+h1.alert-notes {
+    color: #2463C4;
+}
+
+h1.alert-warning {
+    color: #DB5F00;
+}
+
+h1.alert-tips {
+    color: #0F7E0F;
+}
+
+a.alert-warning {background-color: #ffecc9;}
+
+a.alert-notes {background-color: #DCF2FF;}
+
+a.alert-tips {background-color: #E3F7E3;}
+
+table.children-members {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+td.child-member-name {
+    padding-right: 15px;
+    padding-left: 5px;
+    max-width: 50%;
+}
+
+pre.code-inline {
+    display: table;
+}
+
+div.inheritance {
+    display: flex;
+    box-shadow: 0px 0px 10px 0px #C2C2C2;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+}
+
+p.inheritance {
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+}
+
+span.inheritance {
+    display: inline-flex;
+    line-height: normal;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a.inheritance-target {
+    background-color: #4BC6F3;
+    color: black;
+    padding: 3px;
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+a.inheritance:link {text-decoration: none; color: black;}
+a.inheritance:visited {text-decoration: none; color: black;}
+
+a.inheritance {
+    border: 2px solid #4BC6F3;
+    padding: 3px;
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td.inheritance {
+    max-width: 5%;
+    text-align: center;
+    color: #2364C6;
+}
+
+td.enum-value {
+    max-width: 5%;
+    text-align: center;
+}
+
+code.code-block {
+    border-radius: 6px;
+}

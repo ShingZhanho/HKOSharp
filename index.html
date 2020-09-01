@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HKOSharp Official Site</title>
+        
+        <link rel="stylesheet" href="/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        
+        <!-- Code highlight -->
+        <link rel="stylesheet" href="/CodeHighlight/styles/rainbow.css">
+        <script src="CodeHighlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <link rel="icon" type="image/png" href="HKOSharp_Logo.png">
+    </head>
+    <body>
+        <div id="navbar">
+            <iframe class="navbar" src="/nav.html"></iframe>
+        </div>
+        <div id="page-content">
+            <div id="main-content">
+                <h1>Welcome to HKOSharp!</h1>
+                <p>Glad to see you here. Here are some information about HKOSharp.</p>
+                <h2>What is HKOSharp?</h2>
+                <p>HKOSharp is an unofficial C# Library of Hong Kong Observatory's API. It handles all the HTTP requests inside the library. HKOSharp allows you to access Hong Kong's Weather Data with one line or two.</p>
+                <p>Here is an example showing how to get the tomorrow's forecast:</p>
+                <pre><code class="lang-csharp">
+                    var forecasts = LibHKOSharp.Weather.GetNineDaysWeather(Language.English);
+                    Console.WriteLine(forecasts.WeatherForecast[0].ToString());
+                </code></pre>
+                <p>Go to <a href="/Docs/">docs page</a> to learn more.</p>
+                <div class="separator-blank"></div>
+                <h1>External Resources</h1>
+                <h2>Hong Kong Observatory's official documents</h2>
+                <p>Before using, or contributing to HKOSharp, you should also read official documents from Hong Kong Observatory to understand how the API works.</p>
+                <table style="border: none; text-align: center; width: 100%">
+                    <td><a href="https://www.hko.gov.hk/tc/weatherAPI/doc/files/HKO_Open_Data_API_Documentation.pdf">English Version</a></td>
+                    <td><a href="https://www.hko.gov.hk/tc/weatherAPI/doc/files/HKO_Open_Data_API_Documentation_tc.pdf">Chinese (Traditional)</a></td>
+                    <td><a href="https://www.hko.gov.hk/tc/weatherAPI/doc/files/HKO_Open_Data_API_Documentation_ts.pdf">Chinese (Simplified)</a></td>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
