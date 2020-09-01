@@ -80,17 +80,26 @@ namespace HKOSharp {
             private static string GenerateRequestUrl(Language language, WeatherDataType dataType) {
                 var url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?";
 
-                url += language switch {
-                    Language.English => "lang=en",
-                    Language.TraditionalChinese => "lang=tc",
-                    Language.SimplifiedChinese => "lang=sc",
-                    _ => "lang=en"
+                switch (language) {
+                    case Language.English:
+                        url += "lang=en";
+                        break;
+                    case Language.TraditionalChinese:
+                        url += "lang=tc";
+                        break;
+                    case Language.SimplifiedChinese:
+                        url += "lang=sc";
+                        break;
                 };
 
-                url += dataType switch {
-                    WeatherDataType.LocalWeatherForecast => "&dataType=flw",
-                    WeatherDataType.NineDaysWeather => "&dataType=fnd"
-                };
+                switch (dataType) {
+                    case WeatherDataType.LocalWeatherForecast:
+                        url += "&dataType=flw";
+                        break;
+                    case WeatherDataType.NineDaysWeather:
+                        url += "&dataType=fnd";
+                        break;
+                }
 
                 return url;
             }
