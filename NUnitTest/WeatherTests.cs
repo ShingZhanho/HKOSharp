@@ -9,9 +9,13 @@ namespace NUnitTest {
         public void GetLocalWeatherForecast_WithLanguages_IsSucceeded(
             [Values(Language.English, Language.TraditionalChinese, Language.SimplifiedChinese)] Language language) {
             // Acts
+            Weather.UT_InvalidJson = null;
+            Weather.UT_HttpRequestFail = false;
             var lwf = Weather.GetLocalWeatherForecast(language);
             
             // Asserts
+            if (lwf is null) Assert.Fail();
+            
             Assert.IsTrue(lwf.IsSucceeded);
             Assert.IsNull(lwf.FailMessage);
         }
@@ -20,6 +24,8 @@ namespace NUnitTest {
         public void GetLocalWeatherForecastAsync_WithLanguages_IsSucceeded(
             [Values(Language.English, Language.TraditionalChinese, Language.SimplifiedChinese)] Language language) {
             // Acts
+            Weather.UT_InvalidJson = null;
+            Weather.UT_HttpRequestFail = false;
             var lwfAsync = Weather.GetLocalWeatherForecastAsync(language).Result;
             
             // Asserts
