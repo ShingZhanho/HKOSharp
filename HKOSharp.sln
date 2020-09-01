@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HKOSharp", "HKOSharp\HKOSharp.csproj", "{63275CEC-D153-45BB-B955-B40CA9F7C60E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{F178F391-06FF-404D-B85D-A1B28DFD7578}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTest", "NUnitTest\NUnitTest.csproj", "{08C4AE3E-B5D7-43E3-89A5-D4AD5BBBBF27}"
 EndProject
 Global
@@ -16,10 +14,6 @@ Global
 		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63275CEC-D153-45BB-B955-B40CA9F7C60E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F178F391-06FF-404D-B85D-A1B28DFD7578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F178F391-06FF-404D-B85D-A1B28DFD7578}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F178F391-06FF-404D-B85D-A1B28DFD7578}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F178F391-06FF-404D-B85D-A1B28DFD7578}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08C4AE3E-B5D7-43E3-89A5-D4AD5BBBBF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08C4AE3E-B5D7-43E3-89A5-D4AD5BBBBF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C4AE3E-B5D7-43E3-89A5-D4AD5BBBBF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
