@@ -1,13 +1,12 @@
 ﻿using HKOSharp;
 using HKOSharp.LibHKOSharp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
-namespace UnitTestProject {
-    [TestClass]
-    public class LocalWeatherForecastClassTest {
-
-        [TestMethod]
-        public void Constructor_NullJson_Fail() {
+namespace NUnitTest {
+    public class LWFClassTests {
+        
+        [Test]
+        public void Constructor_NullJSON_Fail() {
             // Arrange
             string nullJson = null;
             
@@ -18,10 +17,10 @@ namespace UnitTestProject {
             Assert.IsFalse(lwf.IsSucceeded);
         }
 
-        [TestMethod]
-        public void Constructor_InvalidJson_Fail() {
+        [Test]
+        public void Constructor_InvalidJSON_Fail() {
             // Arrange
-            var invalidJson = "This json is invalid.";
+            const string invalidJson = "This json is invalid.";
             
             // Acts
             var lwf = new LocalWeatherForecast(invalidJson, Language.English);
@@ -29,11 +28,11 @@ namespace UnitTestProject {
             // Asserts
             Assert.IsFalse(lwf.IsSucceeded);
         }
-
-        [TestMethod]
+        
+        [Test]
         public void Constructor_FailToAssignProperties_Fail() {
             // Arrange
-            var wrongJsonFormat = "{\"sample\":\"not correct format\"}";
+            const string wrongJsonFormat = "{\"sample\":\"not correct format\"}";
             
             // Acts
             var lwf = new LocalWeatherForecast(wrongJsonFormat, Language.English);
@@ -41,8 +40,8 @@ namespace UnitTestProject {
             // Asserts
             Assert.IsFalse(lwf.IsSucceeded);
         }
-
-        [TestMethod]
+        
+        [Test]
         public void ClassProperties__NotNull() {
             // Arrange
             var lwf = Weather.GetLocalWeatherForecast();
@@ -61,22 +60,21 @@ namespace UnitTestProject {
             
             // Asserts
             foreach (var property in properties) {
-                Assert.IsNotNull(properties);
+                Assert.IsNotNull(property);
             }
         }
-
-        [TestMethod]
-        public void ClassToString__NotNull() {
+        
+        [Test]
+        public void ClassToString_AllLanguages_NotNull(
+            [Values(Language.English, Language.TraditionalChinese, Language.SimplifiedChinese)] Language language) {
             // Arrange
-            var lwfs = new[] {
-                Weather.GetLocalWeatherForecast(), // Test normal local weather forecast object
-                new LocalWeatherForecast("invalid JSON", Language.English), // Test a filed object
-            };
+            var lwf = Weather.GetLocalWeatherForecast(language);
+            
+            // Acts
+            var lwfString = lwf.ToString();
             
             // Asserts
-            foreach (var lwf in lwfs) {
-                Assert.IsNotNull(lwf.ToString());
-            }
+            Assert.IsNotNull(lwfString);
         }
     }
 }
