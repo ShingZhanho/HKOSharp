@@ -33,15 +33,11 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Install OpenCover.Portable
-      uses: crazy-max/ghaction-chocolatey@v1
-      with:
-        args: install opencover.portable
+      run: choco install opencover.portable
     - name: Generate report
       run: OpenCover.Console.exe -register -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[HKOSharp*]* -[NUnitTest*]*" -output:".\Code_Coverage.xml" -oldstyle
     - name: Install codecov
-      uses: crazy-max/ghaction-chocolatey@v1
-      with:
-        args: install codecov
+      run: choco install codecov
     - name: Upload report
       run: codecov.exe -f "./Code_Coverage.xml"
       
