@@ -2,9 +2,12 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
+[assembly: InternalsVisibleTo("UnitTestProject")]
+[assembly: InternalsVisibleTo("NUnitTest")]
 namespace HKOSharp {
     namespace LibHKOSharp {
         /// <summary>
