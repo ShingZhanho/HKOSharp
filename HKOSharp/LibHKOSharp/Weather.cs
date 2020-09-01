@@ -73,7 +73,10 @@ namespace HKOSharp {
                         ? new NineDaysWeather(json, language)
                         : null;
             }
-            
+
+            public static CurrentWeatherReport GetCurrentWeatherReport(Language language = Language.English) {
+                return null;
+            }
             
             // private methods
             

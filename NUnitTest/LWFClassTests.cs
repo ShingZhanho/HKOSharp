@@ -40,30 +40,7 @@ namespace NUnitTest {
             // Asserts
             Assert.IsFalse(lwf.IsSucceeded);
         }
-        
-        [Test]
-        public void ClassProperties__NotNull() {
-            // Arrange
-            var lwf = Weather.GetLocalWeatherForecast();
 
-            // Acts
-            var properties = new[] {
-                lwf.GeneralSituation,
-                lwf.TCInfo,
-                lwf.FireDangerWarning,
-                lwf.ForecastPeriod,
-                lwf.ForecastDesc,
-                lwf.Outlook,
-                lwf.UpdateTime.ToString(),
-                ((int)lwf.Language).ToString()
-            };
-            
-            // Asserts
-            foreach (var property in properties) {
-                Assert.IsNotNull(property);
-            }
-        }
-        
         [Test]
         public void ClassToString_AllLanguages_NotNull(
             [Values(Language.English, Language.TraditionalChinese, Language.SimplifiedChinese)] Language language) {

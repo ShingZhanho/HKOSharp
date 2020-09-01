@@ -17,8 +17,11 @@ namespace HKOSharp {
                 return;
             }
 
-            var jo = (JObject) JsonConvert.DeserializeObject(json);
-            if (jo is null) {
+            JObject jo;
+            try {
+                jo = (JObject) JsonConvert.DeserializeObject(json);
+            }
+            catch {
                 IsSucceeded = false;
                 FailMessage = $"Cannot instantiate NineDaysWeather object. JSON string is invalid.";
                 return;
@@ -85,7 +88,7 @@ namespace HKOSharp {
             
             IsSucceeded = true;
         }
-        
+
         // Fields
         /// <summary>
         /// A string of general situation.
@@ -115,7 +118,7 @@ namespace HKOSharp {
         // Fields indicating if JSON deserializing is succeeded
         public bool IsSucceeded { get; }
         public string FailMessage { get; }
-        
+
         // Methods
         private const string ToStringTemplateEng = "General Situation: {0}\n" +
                                                    "Weather forecast of future nine days:\n\n" +
@@ -152,15 +155,20 @@ namespace HKOSharp {
             foreach (var temp in SoilTemps) {
                 soilTemps += temp + "\n";
             }
-
-            return Language switch {
-                Language.English => string.Format(ToStringTemplateEng, GeneralSituation, nineDaysWeather
-                ,SeaTemp, SeaTemp, UpdateTime),
-                Language.TraditionalChinese => string.Format(ToStringTemplateChiT, GeneralSituation, nineDaysWeather
-                    ,SeaTemp, SeaTemp, UpdateTime),
-                Language.SimplifiedChinese => string.Format(ToStringTemplateChiS, GeneralSituation, nineDaysWeather
-                    ,SeaTemp, SeaTemp, UpdateTime)
-            };
+            
+            switch (Language) {
+                case Language.English:
+                    return string.Format(ToStringTemplateEng, GeneralSituation, nineDaysWeather, SeaTemp, SeaTemp,
+                        UpdateTime);
+                case Language.TraditionalChinese:
+                    return string.Format(ToStringTemplateChiT, GeneralSituation, nineDaysWeather, SeaTemp, SeaTemp,
+                        UpdateTime);
+                case Language.SimplifiedChinese:
+                    return string.Format(ToStringTemplateChiS, GeneralSituation, nineDaysWeather, SeaTemp, SeaTemp,
+                        UpdateTime);
+                default:
+                    goto case Language.English;
+            }
         }
     }
 

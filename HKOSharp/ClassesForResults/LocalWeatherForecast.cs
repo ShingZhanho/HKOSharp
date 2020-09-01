@@ -123,12 +123,21 @@ namespace HKOSharp {
                 return $"This object has no information since it is marked as failed. Message: {FailMessage}";
             
             // If succeeded
-            var template = Language switch {
-                Language.English => ToStringTemplateEng,
-                Language.TraditionalChinese => ToStringTemplateChiT,
-                Language.SimplifiedChinese => ToStringTemplateChiS,
-                _ => ToStringTemplateEng
-            };
+            string template;
+            switch (Language) {
+                case Language.English:
+                    template = ToStringTemplateEng;
+                    break;
+                case Language.TraditionalChinese:
+                    template = ToStringTemplateChiT;
+                    break;
+                case Language.SimplifiedChinese:
+                    template = ToStringTemplateChiS;
+                    break;
+                default:
+                    goto case Language.English;
+            }
+
             return string.Format(template, GeneralSituation,
                 TCInfo, FireDangerWarning, ForecastPeriod, ForecastDesc, Outlook, UpdateTime);
         }
