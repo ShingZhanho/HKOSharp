@@ -1,3 +1,9 @@
+# IMPORTANT NOTICE
+
+Docs are being rewritten with Docsify.
+
+
+
 # YOU ARE NOW IN BRANCH OF DOCUMENTATION PAGES
 
 Before you editing:
