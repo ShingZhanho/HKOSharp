@@ -1,6 +1,6 @@
 # Introduction
 
-<img src="https://github.com/ShingZhanho/HKOSharp/workflows/Build/badge.svg" alt="Build Status"> <a href="https://codecov.io/gh/ShingZhanho/HKOSharp"><img src="https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://img.shields.io/nuget/v/HKOSharp?color=blue&amp;label=nuget" alt="Nuget version"> <img src="https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&amp;label=latest%20release" alt="GitHub latest version"> <img src="https://img.shields.io/github/license/ShingZhanho/HKOSharp" alt="License">
+<img src="https://github.com/ShingZhanho/HKOSharp/workflows/Build/badge.svg" alt="Build Status"> <a href="https://codecov.io/gh/ShingZhanho/HKOSharp"><img src="https://codecov.io/gh/ShingZhanho/HKOSharp/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://img.shields.io/nuget/v/HKOSharp?color=blue&amp;label=nuget" alt="Nuget version"> <img src="https://img.shields.io/github/v/release/ShingZhanho/HKOSharp?include_prereleases&amp;label=latest%20release" alt="GitHub latest version"> <img src="https://img.shields.io/github/license/ShingZhanho/HKOSharp" alt="License"> <a href="https://github.com/ShingZhanho/HKOSharp/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ShingZhanho/HKOSharp?color=yellow"></a>
 
 
 ## What is HKOSharp?
